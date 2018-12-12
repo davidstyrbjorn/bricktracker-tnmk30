@@ -7,11 +7,19 @@ body{
     margin:auto;
 }
 
+/*FONTS*/
+h1, h2{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    margin:0;
+    
+}
 
 /*NAVIGATION CSS*/
 nav{
     width:100%;
-    background: #3232FF;
+    background: linear-gradient(#015B95, #2572A4);
+    
 }
 
 nav .nav-items{
@@ -21,6 +29,7 @@ nav .nav-items{
 
 .nav-items-left , .nav-items-right{
     display:flex;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .nav-item{
@@ -28,7 +37,34 @@ nav .nav-items{
     text-decoration:none;
     color:white;
 }
+.nav-item:hover{
+    background:#2572A4;
+    border-radius: 2px;
+}
 
 .nav-item-right{
+    
+    margin:7px;
+    padding: 8px 13px;
+    background: red;
+    border-radius: 2px;
+}
+.nav-item-right:hover{
+    background: red;
+}
+
+/*HEADER CSS*/
+header {
+    height:450px;
+    background: gray;
+    
+}
+.header-window{
+    color:aliceblue;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    width:800px;
+    margin:auto;
+    border-radius:5px;
     
 }
