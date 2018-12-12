@@ -19,5 +19,5 @@ $config = array(
 
 
 // Enable error reporting
-ini_set("error_reporting", "true");
-error_reporting(E_ALL|E_STRCT);
+error_reporting(E_ALL);
+ini_set("display_errors",1);
