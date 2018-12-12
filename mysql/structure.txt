@@ -1,0 +1,12 @@
+_users_
+    user_id INTEGER NOT NULL AUTO_INCREMENT
+    username VARCHAR(50) NOT NULL
+    hased_password BINARY(16) NOT NULL // md5
+    email VARCHAR(255) NOT_NULL
+    last_login TIMESTAMP
+    PRIMARY KEY (user_id)
+
+_users_sets_
+    user_id INTEGER NOT NULL 
+    SetID VARCHAR(100) NOT NULL
+    
