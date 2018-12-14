@@ -61,17 +61,17 @@ nav .nav-items{
     
     margin:7px;
     padding: 8px 13px;
-    background: red;
+    background: #cc0000;
     border-radius: 2px;
 }
 .nav-item-right:hover{
-    background: red;
+    background:#b30000;
 }
 
 /*HEADER CSS*/
 header {
     height:450px;
-    background: url("https://picsum.photos/1800/450/?random");
+    background: url("https://baconmockup.com/1600/450/");
     display: table;
     width:100%
     
