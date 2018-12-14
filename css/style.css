@@ -1,6 +1,6 @@
 body{
     margin:0;
-    background: linear-gradient(Gainsboro, #2572A4);
+    background: linear-gradient(Gainsboro, #015B95);
 }
 
 .wrapper{
@@ -17,7 +17,9 @@ h1, h2, h3{
 
 h1{
     
-    font-size:60px
+    font-size:60px;
+    color:#E2BF57;
+    
 }
 p{
   font-family: 'Montserrat', sans-serif;
@@ -69,7 +71,7 @@ nav .nav-items{
 /*HEADER CSS*/
 header {
     height:450px;
-    background: gray;
+    background: url("https://picsum.photos/1800/450/?random");
     display: table;
     width:100%
     
@@ -86,12 +88,13 @@ header {
 }
 
 .register-btn{
-    height:100px;
-    margin-top:20px;
     padding: 15px 20px;
     background: #2572A4;
     color: white;
     border-radius:3px;
+    margin-top:5px;
+    margin-left:-83.4125px;
+    position:absolute;
 }
 
 .register-btn:hover{
@@ -113,9 +116,56 @@ header {
 }
 
 .section img {
-    border-radius:3px;
+    border-radius:2px;
+    margin:10px;
+    border: solid 1px #E2BF57;
+}
+
+article{
+    margin:10px;
+}
+
+article h2{
+    border-bottom:solid 1px #015B95;
+}
+
 }
 
 .section-2{
     justify-content: space-between;
+}
+
+/*REG*/
+
+
+
+
+/*FOOTER*/
+
+footer{
+    background:#2a2a2a;
+}
+
+.footer-sections{
+    padding:10px 0;
+    display:flex;
+    justify-content: space-between;
+}
+
+
+
+.footer-section ul .list-header{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    
+    color: lightgray;
+    border-bottom:solid 1px #E2BF57;
+}
+.footer-section ul li{
+    margin: 5px 0;
+}
+
+.footer-section ul{
+    list-style-type: none;
+    width:500px
 }
