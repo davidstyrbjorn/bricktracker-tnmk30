@@ -1,6 +1,6 @@
 body{
     margin:0;
-    background: linear-gradient(Gainsboro, #015B95);
+    background: linear-gradient(#52E5E7 , #015B95);
 }
 
 .wrapper{
@@ -16,13 +16,16 @@ h1, h2, h3{
 }
 
 h1{
-    
     font-size:60px;
     color:#E2BF57;
-    
 }
 p{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size:18px;
+    margin:0;
 }
 
 a{
@@ -35,6 +38,8 @@ a{
 nav{
     width:100%;
     background: linear-gradient(#015B95, #2572A4);
+    position:fixed;
+    z-index:100;
     
 }
 
@@ -62,16 +67,17 @@ nav .nav-items{
     margin:7px;
     padding: 8px 13px;
     background: #cc0000;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 .nav-item-right:hover{
     background:#b30000;
+    border-radius: 1px;
 }
 
 /*HEADER CSS*/
 header {
     height:450px;
-    background: url("https://baconmockup.com/1600/450/");
+    background: url("https://baconmockup.com/1800/450/");
     display: table;
     width:100%
     
@@ -82,7 +88,7 @@ header {
     color:aliceblue;
     text-align: center;
 }
-.header-window p{
+.header-window h5{
     width:800px;
     margin:auto
 }
