@@ -98,12 +98,12 @@ header {
     background: #2572A4;
     color: white;
     border-radius:3px;
-    margin-top:5px;
-    margin-left:-83.4125px;
     position:absolute;
+    margin:20px;
+    margin-left:-83.415px
 }
 
-.register-btn:hover{
+.register-btn:hover, .submit-btn:hover{
     background:#015B95;
     
 }
@@ -175,3 +175,36 @@ footer{
     list-style-type: none;
     width:500px
 }
+
+
+/*FORM-Register*/
+input{
+    margin:5px 10px;
+    padding:10px;
+    width:250px;
+    font-family: 'Roboto', sans-serif;
+    font-size:15px;
+    
+}
+
+.submit-btn{
+    margin:auto;
+    position:static;
+    width:570px;
+    border:0;
+    font-size:15px;
+    background: #2572A4;
+    color: white;
+    border-radius:3px;
+    padding: 10px 0;
+}
+
+.large-header{
+    height:800px;
+    background: url("https://baconmockup.com/1800/800/");
+}
+
+
+
+
+
