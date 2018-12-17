@@ -75,19 +75,19 @@ nav .nav-items{
 }
 
 /*CSS EFFECTS*/
-header:hover{
+#hover-header:hover{
     transition: 0.2s;
     
 }
 
-header:hover > .header-window{
+#hover-header:hover > .header-window{
     transform: scale(1.03);
     transition: 0.2s;
     transition-timing-function: ease-in-out;
 
 }
 
-header:hover{
+#hover-header:hover{
     transition: 0.2s;
     background: url("https://i.imgur.com/lHYR56y.png");
 }
