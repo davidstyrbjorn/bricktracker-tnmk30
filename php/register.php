@@ -31,7 +31,7 @@
         <header>
             <div class="header-window large-header">
                 
-                <form action="register.php" method="post">
+                <form action="register_validate.php" method="post">
                   
                     
                     
@@ -64,7 +64,7 @@
                                 }
                                 $error .= "passwords were not alike";
                             }
-                            echo '<p>'.$error.'</p>';
+                            echo '<p class="error-message">'.$error.'</p>';
 
                         } 
                     }
