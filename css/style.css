@@ -81,7 +81,7 @@ nav .nav-items{
 }
 
 #hover-header:hover > .header-window{
-    transform: scale(1.03);
+    transform: scale(1.008);
     transition: 0.2s;
     transition-timing-function: ease-in-out;
 
@@ -93,11 +93,11 @@ nav .nav-items{
 }
 
 /*HEADER CSS*/
-header {
+#hover-header {
     height:450px;
     background: url("https://baconmockup.com/1800/450/");
     display: table;
-    width:100%;
+    width: 100%;
     transition: 0.2s;
     
 }
