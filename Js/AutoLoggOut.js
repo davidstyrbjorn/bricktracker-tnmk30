@@ -2,7 +2,7 @@ var firstTimer = 600000;
 var secondTimer = 60000;
 var loggOut /*url av utloggningsida*/;
 var myTimer;
-
+var modal = document.getElementById('myModal');
 
 
 function IdleTimer() {
@@ -17,12 +17,13 @@ function IdleTimer() {
     }
     
     function WarningTimer() {
-        /*div show grej för varnings fönster bygger sen */
+        modal.style.display = "block";
         clearTimeout(myTimer);
         myTimer = window.setTimeout(LoggOut(), secondTimer);
     }
     
     function ResetTimer() {
+        modal.style.direction = "none";
         clearTimeout(myTimer);
         StartTimer();
     }
