@@ -90,6 +90,9 @@ nav .nav-items{
 #hover-header:hover{
     transition: 0.2s;
     background: url("https://i.imgur.com/lHYR56y.png");
+    background-position: center;
+    background-size: cover;
+
 }
 
 /*HEADER CSS*/
@@ -99,6 +102,9 @@ nav .nav-items{
     display: table;
     width: 100%;
     transition: 0.2s;
+    background-position: center;
+    background-size: cover;
+
     
 }
 .header-window{
