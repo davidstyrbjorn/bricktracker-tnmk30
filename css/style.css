@@ -74,12 +74,31 @@ nav .nav-items{
     border-radius: 1px;
 }
 
+/*CSS EFFECTS*/
+#hover-header:hover{
+    transition: 0.2s;
+    
+}
+
+#hover-header:hover > .header-window{
+    transform: scale(1.03);
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+
+}
+
+#hover-header:hover{
+    transition: 0.2s;
+    background: url("https://i.imgur.com/lHYR56y.png");
+}
+
 /*HEADER CSS*/
 header {
     height:450px;
     background: url("https://baconmockup.com/1800/450/");
     display: table;
-    width:100%
+    width:100%;
+    transition: 0.2s;
     
 }
 .header-window{
@@ -87,6 +106,8 @@ header {
     vertical-align: middle;
     color:aliceblue;
     text-align: center;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;    
 }
 .header-window h5{
     width:800px;

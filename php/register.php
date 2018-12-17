@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
@@ -31,12 +31,52 @@
         <header>
             <div class="header-window large-header">
                 
-                <form method="post" action="../php/register_validate.php">
+                <form action="register_validate.php" method="post">
                   
+                    
+                    
                     <h1>Register</h1>
                     <p>Please fill in this form to create an account.</p>
                     
+                    <?php
                     
+                    if(isset($_GET['authentication'])){
+                        $auth = $_GET['authentication'];
+                        $combo = 0;
+                        if(!empty($auth)){
+                            $error = "Your ";
+
+                            if (strpos($auth, 'username') !== false) {
+                                $error .= "username was invalid";
+                                $combo++;
+                            }
+                            if(strpos($auth, 'password') !== false){
+                                if($combo>0){
+                                    $error .= " and ";
+                                }
+                                $error .= "password was invalid";
+                                $combo++;
+
+                            }
+                            if(strpos($auth, 'passr') !== false){
+                                if($combo>0){
+                                    $error .= " and ";
+                                }
+                                $error .= "passwords were not alike";
+                            }
+                            echo '<p class="error-message">'.$error.'</p>';
+
+                        } 
+                    }
+                    
+                    
+                    
+                    
+                        
+                        
+    
+                    
+                    ?>
                             <div class="form-column">
                                 <input type="text" placeholder="Username" name="username" required>
 
