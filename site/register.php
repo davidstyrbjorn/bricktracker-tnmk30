@@ -18,7 +18,7 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
-                        <a class="nav-item" href="home.html">BRICK_TRACKER</a>
+                        <a class="nav-item" href="home.php">BRICK_TRACKER</a>
                         <a class="nav-item" href="">SETS</a>
                         <a class="nav-item" href="">ADD</a>
                     </div>
@@ -31,7 +31,7 @@
         <header>
             <div class="header-window large-header">
                 
-                <form action="register_validate.php" method="post">
+                <form action="../php/register_validate.php" method="post">
                   
                     
                     
