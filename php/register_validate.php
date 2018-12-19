@@ -26,7 +26,7 @@ if(strlen($username) < $username_min_length){
 // There was authentication error
 if($authentication_error == true){
 	// Redirect back with appropiate error message
-	header("location: register.php?$authentication_msg");
+	header("location: ../site/register.php?$authentication_msg");
 }
 
 // Hash the password
@@ -46,5 +46,7 @@ try{
 	echo $e->getMessage();
 	die();
 }
+
+echo "Register went through!";
 
 ?>
