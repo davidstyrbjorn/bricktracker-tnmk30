@@ -248,31 +248,35 @@ input{
 table{
     border-collapse: collapse;
     width:100%;
-    border-radius: 3px;
 }
 th{
     text-align: center;
     font-family: 'Quicksand', sans-serif;
     font-size:18px;
     padding:8px 0;
+    color:white;
 }
 tr { 
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px slategray;
 }
 
 td{
     padding:10px 0;
-     text-align: center;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size:16px;
 }
 
 .dark-tr{
-    background: #d9e6f2;
+    background: LightSteelBlue;
 }
 
 .light-tr{
     background: whitesmoke;
+}
+
+.light-tr:hover, .dark-tr:hover{
+    background: #d9e6f2;
 }
 
 
