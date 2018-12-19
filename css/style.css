@@ -187,7 +187,14 @@ article h2{
 /*FOOTER*/
 
 footer{
-    background:#2a2a2a;
+    background:#2a2a2a; 
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+
 }
 
 .footer-sections{
@@ -195,8 +202,6 @@ footer{
     display:flex;
     justify-content: space-between;
 }
-
-
 
 .footer-section ul .list-header{
     font-family: 'Quicksand', sans-serif;
@@ -246,21 +251,22 @@ input{
 
 /*MY PAGE TABLE*/
 
-.main table{
+table{
     border-collapse: collapse;
-    width:100%; 
+    width:100%;
+    border-radius: 3px;
 }
-.main th{
+th{
     text-align: center;
     font-family: 'Quicksand', sans-serif;
     font-size:18px;
     padding:8px 0;
 }
-.main tr { 
+tr { 
     border-bottom: solid 1px black;
 }
 
-.main td{
+td{
     padding:10px 0;
      text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -268,11 +274,11 @@ input{
 }
 
 .dark-tr{
-    background: whiteSmoke;
+    background: #d9e6f2;
 }
 
 .light-tr{
-    background: aliceblue;
+    background: whitesmoke;
 }
 
 
