@@ -149,7 +149,7 @@ header{
 /*ARTICLE / MAIN BODY*/
 
 .main{
-    background: #E8E8E8;
+    background: whitesmoke;
     margin: 10px 0;
     padding:5px;
     border-radius:3px;
@@ -244,5 +244,35 @@ input{
 
 
 
+/*MY PAGE TABLE*/
+
+.main table{
+    border-collapse: collapse;
+    width:100%; 
+}
+.main th{
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size:18px;
+    padding:8px 0;
+}
+.main tr { 
+    border-bottom: solid 1px black;
+}
+
+.main td{
+    padding:10px 0;
+     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size:16px;
+}
+
+.dark-tr{
+    background: whiteSmoke;
+}
+
+.light-tr{
+    background: aliceblue;
+}
 
 

@@ -63,6 +63,13 @@
                                     $error .= " and ";
                                 }
                                 $error .= "passwords were not alike";
+                                $combo++;
+                            }
+                            if(strpos($auth, 'email') !== false){
+                                if($combo>0){
+                                    $error .= " and ";
+                                }
+                                $error .= "email was invalid";
                             }
                             echo '<p class="error-message">'.$error.'</p>';
 
