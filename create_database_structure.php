@@ -1,11 +1,20 @@
 <?php
 
-//require_once("php/config.php");
-//
-//$host = $config["db"]["special_admin"]["host"];
-//$dbname = $config["db"]["special_admin"]["dbname"]; 
-//$username = $config["db"]["special_admin"]["username"]; 
-//$password =	$config["db"]["special_admin"]["password"];
+require_once("php/config.php");
+
+$host = $config["db"]["special_admin"]["host"];
+$dbname = $config["db"]["special_admin"]["dbname"]; 
+$username = $config["db"]["special_admin"]["username"]; 
+$password =	$config["db"]["special_admin"]["password"];
+
+$db = mysqli_connect($host, $username, $password, $dbname) or die();
+//mysqli_query($db, "INSERT INTO users(username, email, pword) VALUES('bitch-emil', 'davidstyrbjorn@gmail.com', 'nonhashedpword')");
+$result = mysqli_query($db, "SELECT * FROM users");
+
+while($row = mysqli_fetch_array($result)){
+	echo $row["username"] . "<br/>";
+}
+
 //
 ////$dsn = "mysql:host=$host;dbname:$dbname";
 ////$pdo = null;
