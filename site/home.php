@@ -31,7 +31,7 @@
         <header id="hover-header">
             <div class="header-window">
                 <h1 id="header-window-text">Welcome to BrickTracker</h1>
-                <h5>David is big gay and shpuld get some slaps in my ass och så vidare denna hemsida är så bra, ruben is bot very evil, kom till area 69 för att rädda planeten och alla civiliation snälla rädda oss vi behöver din hjälp köp denna penis ring nu annars kommer</h5>
+                <h5>Keep track of your LEGO collection online with BrickTracker! Sign up today for a place to easily store each set that you've purchased.</h5>
                 <a class="register-btn" href="register.php">REGISTER HERE</a>
             </div>
         </header>
@@ -42,14 +42,16 @@
                     <img src="https://baconmockup.com/450/300/" alt="About">
                     <article>
                         <h2>About</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet nibh eleifend, egestas quam a, consequat lectus. Donec convallis ultrices sapien et ornare. Phasellus quis lacus ullamcorper, dictum elit ac, tincidunt ipsum. In hendrerit, odio quis ultrices dapibus, elit arcu auctor orci, quis mattis diam leo fringilla metus. Nullam vitae pretium risus. Vestibulum molestie posuere augue, eu ornare dolor ultricies et. Integer luctus, felis a euismod feugiat, augue est egestas sapien, eget dignissim nulla nulla sit amet eros. Pellentesque sed urna hendrerit, accumsan sem elementum, accumsan nisl. Curabitur tempus lorem tortor, a dapibus nisi auctor eu.</p>
+                        <p>BrickTracker is an online tool for easy management of your own pesonal collection. With BrickTracker, you can create a personal list of purchased sets and easily keep track of what pieces you own. 
+                            
+                        Once you've created an account, simply search for the sets you'd like to keep track of and click to add them to your collection.</p>
                     </article>
                 </div>
                 <div class="section section-2">
                     
                     <article>
                         <h2>Database</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet nibh eleifend, egestas quam a, consequat lectus. Donec convallis ultrices sapien et ornare. Phasellus quis lacus ullamcorper, dictum elit ac, tincidunt ipsum. In hendrerit, odio quis ultrices dapibus, elit arcu auctor orci, quis mattis diam leo fringilla metus. Nullam vitae pretium risus. Vestibulum molestie posuere augue, eu ornare dolor ultricies et. Integer luctus, felis a euismod feugiat, augue est egestas sapien, eget dignissim nulla nulla sit amet eros. Pellentesque sed urna hendrerit, accumsan sem elementum, accumsan nisl. Curabitur tempus lorem tortor, a dapibus nisi auctor eu.</p>
+                        <p>Our Database contains LEGO sets and pieces with images as well as basic descriptions. For users, this means that you can check out a set that you own, or perhaps one that you're looking to purchase.</p>
                     </article>
                     <img src="https://baconmockup.com/450/300/" alt="About">
                 </div>
