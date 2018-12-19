@@ -1,6 +1,6 @@
 body{
     margin:0;
-    background: linear-gradient(#52E5E7 , #015B95);
+    background: #2C7AAD;
 }
 
 .wrapper{
@@ -188,13 +188,7 @@ article h2{
 
 footer{
     background:#2a2a2a; 
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    text-align: center;
-
+width:100%;
 }
 
 .footer-sections{
