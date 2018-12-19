@@ -96,6 +96,16 @@ nav .nav-items{
 }
 
 /*HEADER CSS*/
+header{
+    height:450px;
+    display: table;
+    width: 100%;
+    transition: 0.2s;
+    background-position: center;
+    background-size: cover;
+    
+}
+
 #hover-header {
     height:450px;
     background: url("https://baconmockup.com/1800/450/");
@@ -107,6 +117,7 @@ nav .nav-items{
 
     
 }
+
 .header-window{
     display: table-cell; 
     vertical-align: middle;
