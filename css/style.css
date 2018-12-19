@@ -89,7 +89,7 @@ nav .nav-items{
 
 #hover-header:hover{
     transition: 0.2s;
-    background: url("https://i.imgur.com/lHYR56y.png");
+    background: url("https://i.imgur.com/ZcPnllj.jpg");
     background-position: center;
     background-size: cover;
 
@@ -108,7 +108,7 @@ header{
 
 #hover-header {
     height:450px;
-    background: url("https://baconmockup.com/1800/450/");
+    background: url("https://i.imgur.com/HEaQQEM.jpg");
     display: table;
     width: 100%;
     transition: 0.2s;
