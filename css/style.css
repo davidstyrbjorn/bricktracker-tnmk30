@@ -272,11 +272,11 @@ td{
 }
 
 .light-tr{
-    background: whitesmoke;
+    background: #d9e6f2;
 }
 
 .light-tr:hover, .dark-tr:hover{
-    background: #d9e6f2;
+    background: whitesmoke;
 }
 
 

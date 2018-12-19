@@ -65,11 +65,11 @@
                                 $error .= "passwords were not alike";
                                 $combo++;
                             }
-                            if(strpos($auth, 'email') !== false){
+                            if(strpos($auth, 'exists') !== false){
                                 if($combo>0){
                                     $error .= " and ";
                                 }
-                                $error .= "email was invalid";
+                                $error .= "username or email is already in use";
                             }
                             echo '<p class="error-message">'.$error.'</p>';
 
