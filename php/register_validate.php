@@ -1,5 +1,7 @@
 <?php
 
+require_once("config.php");
+
 $username = $_POST["username"];
 $unhashed_password = $_POST["password"];
 $password_repeat = $_POST["password-repeat"];
@@ -41,8 +43,8 @@ $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to 
 
 $email_result = mysqli_query($db, "SELECT * FROM users WHERE users.email = '$email'");
 $username_result = mysqli_query($db, "SELECT * FROM users WHERE users.username = '$username'");
-$email_exists = (mysqli_num_rows($email_result))?TRUE:FALSE;
-$username_exists = (mysqli_num_rows($username_result))?TRUE:FALSE;
+$email_exists = (mysqli_num_rows($email_result)) ? TRUE:FALSE;
+$username_exists = (mysqli_num_rows($username_result)) ? TRUE:FALSE;
 if(!$email_exists && !$username_exists){
 	$query = "INSERT INTO users(username, email, pword) VALUES ('$username', '$email', '$hashed_pasword')";
 	$result = mysqli_query($db, $query);

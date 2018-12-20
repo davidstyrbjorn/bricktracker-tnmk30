@@ -7,12 +7,13 @@ $dbname = $config["db"]["special_admin"]["dbname"];
 $username = $config["db"]["special_admin"]["username"]; 
 $password =	$config["db"]["special_admin"]["password"];
 
-$db = mysqli_connect($host, $username, $password, $dbname) or die();
+$db = mysqli_connect($host, $username, $password, $dbname) or die("cant connect");
 //mysqli_query($db, "INSERT INTO users(username, email, pword) VALUES('bitch-emil', 'davidstyrbjorn@gmail.com', 'nonhashedpword')");
 $result = mysqli_query($db, "SELECT * FROM users");
+//$result = mysqli_query($db, "DELETE FROM users");
 
 while($row = mysqli_fetch_array($result)){
-	echo $row["username"] . "<br/>";
+	echo $row["username"] . ", " . $row["email"] . "<br/>";
 }
 
 //
