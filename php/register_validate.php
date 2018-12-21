@@ -33,7 +33,6 @@ if($authentication_error == true){
 $hashed_pasword = hash($hash, $unhashed_password);
 
 // Insert into database!
-include "db.php";
 $host = $config["db"]["special_edit"]["host"];
 $dbname = $config["db"]["special_edit"]["dbname"]; 
 $db_username = $config["db"]["special_edit"]["username"]; 
