@@ -216,7 +216,7 @@ footer{
 
 /*FORM-Register*/
 input{
-    margin:5px 10px;
+    margin:3px 0;
     padding:10px;
     width:250px;
     font-family: 'Roboto', sans-serif;
@@ -245,7 +245,7 @@ input{
 
 /*MY PAGE TABLE*/
 
-table{
+.lego-table{
     border-collapse: collapse;
     width:100%;
 }
@@ -279,4 +279,57 @@ td{
     background: whitesmoke;
 }
 
+.pagination{
+    width:200px;
+    margin:20px auto 20px auto;
+    font-family: 'Varela Round', sans-serif;
+    
+}
 
+.pagination tr td a{
+    font-family: 'Varela Round', sans-serif;
+    color:white;
+    padding: 10px 15px;
+    border-radius: 3px;
+}
+.pagination tr td{
+    border-radius: 3px;
+}
+.pagination tr td:hover{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.active-pagination{
+    background: whitesmoke;
+}
+
+.pagination tr .active-pagination a{
+    color:black;
+}
+.pagination tr .active-pagination a:hover{
+    color:white;
+}
+
+
+
+
+/*LOGIN*/
+.login-window{
+    padding:5px 30px 10px 30px;
+    margin:auto;
+    width:274px;
+    background: whitesmoke;
+    border-radius:3px;
+}
+.outer-login{
+    padding:200px 0 400px;
+}
+
+.label{
+    margin-top:25px;
+}
+.login-title{
+    text-align: center;
+    color:#E2BF57;
+    margin:5px;
+}
