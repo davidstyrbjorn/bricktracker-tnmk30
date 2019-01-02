@@ -131,6 +131,44 @@ header{
     margin:auto
 }
 
+
+.header-window-mypage{
+    display: table-cell; 
+    vertical-align: middle;
+    color:aliceblue;
+    text-align:center;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    background:#47556f;
+    
+}
+
+.header-window-mypage h5, .header-window-mypage h3, .header-window-mypage ul{
+    width:800px;
+    margin:auto
+}
+
+.header-window-mypage h5{
+  
+    text-align:left;
+}
+
+.header-window-mypage h3{
+    color: yellowgreen;
+    font-size: 30px;
+    
+}
+
+.header-window-mypage ul{
+   font-family: 'Montserrat', sans-serif;
+   list-style-type: none;
+    text-align:left;
+    padding:0;
+}
+
+
+
+
 .register-btn{
     padding: 15px 20px;
     background: #2572A4;
@@ -243,7 +281,7 @@ input{
 
 
 
-/*MY PAGE TABLE*/
+/*MY PAGE/ADD TABLE*/
 
 .lego-table{
     border-collapse: collapse;
@@ -308,6 +346,11 @@ td{
 }
 .pagination tr .active-pagination a:hover{
     color:white;
+}
+
+.add-button{
+    font-size:20px;
+    padding: 0 6px 3px 6px;
 }
 
 
