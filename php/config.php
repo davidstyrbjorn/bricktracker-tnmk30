@@ -2,11 +2,11 @@
 
 $config = array(
     "db" => array(
-        "big_lego_databse" => array(
-            "dbname" => "database1",
-            "username" => "dbUser",
-            "password" => "pa$$",
-            "host" => "localhost"
+        "big_lego_database" => array(
+            "dbname" => "lego",
+            "username" => "lego",
+            "password" => "",
+            "host" => "mysql.itn.liu.se"
         ),
         "special_select" => array(
             "dbname" => "emibe986",
