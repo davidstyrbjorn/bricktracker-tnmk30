@@ -10,6 +10,16 @@
   		<link  href="../css/style.css" rel="stylesheet"/>
   		<script src=""></script>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!--
+		PHP Include
+		-->
+		<?php
+		session_start();
+		include "../php/config.php";
+		include "../php/script.php";
+		?>
+		
     </head>
     
     <body>
@@ -18,9 +28,9 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
-                        <a class="nav-item" href="">BRICK_TRACKER</a>
-                        <a class="nav-item" href="">SETS</a>
-                        <a class="nav-item" href="">ADD</a>
+                        <a class="nav-item" href="home.php">BRICK_TRACKER</a>
+                        <a class="nav-item" href="mypage.php">SETS</a>
+                        <a class="nav-item" href="add.php">ADD</a>
                     </div>
                     <div class="nav-items-right">
                         <a class="nav-item nav-item-right" href="">LOG IN</a>
@@ -33,14 +43,9 @@
             <div class="header-window-mypage">
                 <br>
                 <br>
-                <h3>Xx_BigBlackBrick_xX</h3>
-                <h5>Welcome to your personal collection! Here you can se your collection of sets and bricks! if your list is empty go to the add page to add sets that you own!</h5>
-                <ul>
-                    <li>Email:</li>
-                    <li>Largest set:</li>
-                    <li>Amount of bricks:</li>
-                   
-                </ul>
+				<?php
+				displayUserInfo();
+				?>
                 
             </div>
         </header>
@@ -55,14 +60,9 @@
                     <th>YEAR</th>
                     <th>IMAGE</th>
                   </tr>
-				  
 
 				  <?php
-					if(file_exists("../php/script.php")){
-						include "../php/config.php";
-						include "../php/script.php";
 						displayOwnedSets();
-					}
 				  ?>
 				  
                 </table>

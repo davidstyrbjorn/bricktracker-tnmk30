@@ -18,12 +18,12 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
-                        <a class="nav-item" href="">BRICK_TRACKER</a>
-                        <a class="nav-item" href="">SETS</a>
-                        <a class="nav-item" href="">ADD</a>
+                        <a class="nav-item" href="home.php">BRICK_TRACKER</a>
+                        <a class="nav-item" href="home.php">SETS</a>
+                        <a class="nav-item" href="home.php">ADD</a>
                     </div>
                     <div class="nav-items-right">
-                        <a class="nav-item nav-item-right" href="">LOG IN</a>
+                        <a class="nav-item nav-item-right" href="login.php">LOG IN</a>
                     </div>
                 </div>
             </div>

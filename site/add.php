@@ -10,6 +10,13 @@
   		<link  href="../css/style.css" rel="stylesheet"/>
   		<script src=""></script>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<?php
+		session_start();
+		include "../php/config.php";
+		include "../php/script.php";
+		?>
+		
     </head>
     
     <body>
@@ -18,9 +25,9 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
-                        <a class="nav-item" href="">BRICK_TRACKER</a>
-                        <a class="nav-item" href="">SETS</a>
-                        <a class="nav-item" href="">ADD</a>
+                        <a class="nav-item" href="home.php">BRICK_TRACKER</a>
+                        <a class="nav-item" href="mypage.php">SETS</a>
+                        <a class="nav-item" href="add.php">ADD</a>
                     </div>
                     <div class="nav-items-right">
                         <a class="nav-item nav-item-right" href="">LOG IN</a>
@@ -38,7 +45,7 @@
         <div class="wrapper">
             
             <form class="search" action="add.php" method="get">
-                <input type="text" placeholder="Search for SetID, SetName, SetYear..." value="SKRIV GETTEN HÄR DAVID :-)">
+                <input type="text" placeholder="Search for SetID, SetName, SetYear..." value="" name="search_string">
                 <button type="submit">Search</button>
             </form>
             
@@ -49,40 +56,16 @@
                     <th>YEAR</th>
                     <th>IMAGE</th>
                     <th>ADD</th>
-                      
-                    
                   </tr>
-                  <tr class="dark-tr">
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>
-                      
-                    <form action="addset.php" method="post">
-                            <input type="hidden" value="Skriv id här">
-                            <button type="submit" class="add-button">+</button>
-                        </form>
-                      
-                    </td>
-                    
-                  </tr>
-                  <tr class="light-tr">
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>placeholder</td>
-                    <td>
-                    
-                        <form action="addset.php" method="post">
-                            <input type="hidden" value="Skriv id här">
-                            <button type="submit" class="add-button">+</button>
-                        </form>
-                      
-                    </td>
-                      
-                  </tr>
+				  
+				  <?php
+				  if(isset($_GET["search_string"])){
+					  searchForSetAndDisplay($_GET["search_string"]);
+				  }
+				  ?>
+				 
                 </table>
+				
             <table class="pagination">
                 <tr>
                     <td><a href=""><<</a></td>

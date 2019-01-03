@@ -18,9 +18,9 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
-                        <a class="nav-item" href="">BRICK_TRACKER</a>
-                        <a class="nav-item" href="">SETS</a>
-                        <a class="nav-item" href="">ADD</a>
+                        <a class="nav-item" href="home.php">BRICK_TRACKER</a>
+                        <a class="nav-item" href="home.php">SETS</a>
+                        <a class="nav-item" href="home.php">ADD</a>
                     </div>
                     <div class="nav-items-right">
                         <a class="nav-item nav-item-right" href="">LOG IN</a>
@@ -31,9 +31,9 @@
         <div class="outer-login">
             <h2 class="login-title">BrickTracker Login</h2>
             <div class="login-window">
-                <form action="../php/login_validatr.php" method="post">
+                <form action="../php/login_validate.php" method="post">
                     <h5 class="label">Username or Email</h5>
-                    <input type="text"  name="username">
+                    <input type="text" name="identification">
                     <h5 class="label">Password</h5>
                     <input type="password" name="password">
                     <button type="submit" class="submit-btn login-btn">Log in</button>
