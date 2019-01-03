@@ -8,6 +8,11 @@ Functions implemented here:
 Uses session to get user_id and to check if user is logged in
 */
 
+function displayUserInfo()
+{
+	
+}
+
 function displayOwnedSets()
 {
     session_start(); // Start session assuming it hasn't already been done
@@ -60,10 +65,10 @@ function displayOwnedSets()
 			echo "<tr class='$table_row_class'>";
 			echo "<td>" . $row['SetID'] . 	"</td>";
 			echo "<td>" . $row['Setname'] . "</td>";
-			echo "<td"> . $row['Year'] . 	"</td>";
+			echo "<td>" . $row['Year'] . 	"</td>";
 			$url  = getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
-			echo "<td class='set-image'>" . "<img src=''>" . "</td>";
-			echo "</tr>"
+			echo "<td class='set-image'>" . "<img src='$url'>" . "</td>";
+			echo "</tr>";
 		}
 	}
 }

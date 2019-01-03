@@ -54,25 +54,17 @@
                     <th>NAME</th>
                     <th>YEAR</th>
                     <th>IMAGE</th>
-                   
-                      
-                    
                   </tr>
-                  <tr class="dark-tr">
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td><img src="" alt="set-image" class="set-image"></td>
-                    
-                    
-                  </tr>
-                  <tr class="light-tr">
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td><img src="" alt="set-image" class="set-image"></td>
-                   
-                  </tr>
+				  
+
+				  <?php
+					if(file_exists("../php/script.php")){
+						include "../php/config.php";
+						include "../php/script.php";
+						displayOwnedSets();
+					}
+				  ?>
+				  
                 </table>
             <table class="pagination">
                 <tr>
