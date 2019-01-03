@@ -36,6 +36,7 @@
                     <input type="text"  name="username">
                     <h5 class="label">Password</h5>
                     <input type="password" name="password">
+                    <button type="submit" class="submit-btn login-btn">Log in</button>
                 </form>
                 <p>Not a member? Register <a href="register.php">here!</a></p>
             </div>

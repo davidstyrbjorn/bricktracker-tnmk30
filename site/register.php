@@ -95,7 +95,7 @@
                                 <input type="password" placeholder="Repeat Password" name="password-repeat" required>
                         </div>
                             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                        <button type="submit" class="submit-btn">Register</button>
+                        <button type="submit" class="submit-btn register-btn">Register</button>
                 
 
                   <div class="container signin">
