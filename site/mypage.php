@@ -18,6 +18,10 @@
 		session_start();
 		include "../php/config.php";
 		include "../php/script.php";
+		
+		if(!isset($_SESSION["mypage_page"])){
+			$_SESSION["mypage_page"] = 1;
+		}
 		?>
 		
     </head>
@@ -59,6 +63,7 @@
                     <th>NAME</th>
                     <th>YEAR</th>
                     <th>IMAGE</th>
+					<th>REMOVE</th>
                   </tr>
 
 				  <?php
@@ -66,18 +71,10 @@
 				  ?>
 				  
                 </table>
-            <table class="pagination">
-                <tr>
-                    <td><a href=""><<</a></td>
-                    <td><a href=""><</a></td>
-                    <td class="active-pagination"><a href="">1</a></td>
-                    <td><a href="">2</a></td>
-                    <td><a href="">3</a></td>
-                    <td><a href="">></a></td>
-                    <td><a href="">>></a></td>
-                </tr>
-            </table>
-        
+
+        <?php
+		displayPaginationMypage();
+		?>
         
         </div>
         

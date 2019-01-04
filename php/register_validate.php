@@ -51,7 +51,8 @@ if(!$email_exists && !$username_exists){
 	// Login the user_error
 	$query = "SELECT users.user_id FROM users WHERE users.email = '$email'";
 	$result = mysqli_query($db, $query);
-	$userid = mysqli_fetch_assoc($result);
+	$row = mysqli_fetch_array($result);
+	$userid = $row["user_id"]; 
 	session_start(); // Start session 
 	$_SESSION["logged_in"] = true;
 	$_SESSION["user_id"] = $userid;

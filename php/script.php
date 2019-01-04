@@ -1,30 +1,54 @@
 <?php
 /*
-Functions implemented here:
-- Getting all the sets a user(user_id) has in his/hers possession
-- Adding a set to a user 
-- Removing a set from a user
-
-Uses session to get user_id and to check if user is logged in
+Use session to get user_id and to check if user is logged in
 */
 
 function displayUserInfo()
 {
+	// Format 
+	// User name is <h3>
+	// Description is <h5>
+	// Stats is <ul> <li></li> </ul>
 	
+	include "config.php";
+	
+	$username = "";
+	$description = "Welcome to your personal collection! Here you can se your collection of sets and bricks! if your list is empty go to the add page to add sets that you own!";
+		
+	// Get user name
+	if(!isset($_SESSION["logged_in"])){
+		//return;
+	}
+	if($_SESSION["logged_in"]){
+		
+		$user_id = $_SESSION["user_id"];
+		
+		// open DB
+        $host = $config["db"]["special_edit"]["host"];
+        $dbname = $config["db"]["special_edit"]["dbname"]; 
+        $db_username = $config["db"]["special_edit"]["username"]; 
+        $password =	$config["db"]["special_edit"]["password"];
+		$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
+	
+		$query = "SELECT * FROM users WHERE users.user_id = '$user_id'";
+		$result = mysqli_query($db, $query);
+		$row = mysqli_fetch_array($result);
+		$username = $row["username"];
+	}
+	
+	echo "<h3>" . $username . "</h3>";
+	echo "<h5>" . $description . "</h3>";
 }
 
 function displayOwnedSets()
 {
-    session_start(); // Start session assuming it hasn't already been done
-
     // Make sure the user is logged in!
-    //if(!isset($_SESSION["logged_in"]))
-    //    return;
-    //if(!$_SESSION["logged_in"]){
-	if(1 == 1){
+    if(!isset($_SESSION["logged_in"])) {
+        return;
+	}
+    if($_SESSION["logged_in"]){
 		// We are logged in, proceed with retrieving the sets
-        //$user_id = $_SESSION["user_id"];
-		$user_id = 11;
+        $user_id = $_SESSION["user_id"];
 		
 		include "config.php";
 		
@@ -35,8 +59,10 @@ function displayOwnedSets()
         $password =	$config["db"]["special_edit"]["password"];
         $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
         
+		$page_number = $_SESSION["mypage_page"];
+		$offset = ($page_number-1)*5;
         // Get all the sets id the user has
-		$query = "SELECT * FROM users_sets WHERE '$user_id' = users_sets.user_id";
+		$query = "SELECT * FROM users_sets WHERE '$user_id' = users_sets.user_id LIMIT $offset, $items_per_page";
         $result = mysqli_query($db, $query);
 		$set_id_list = array();
         while($row = mysqli_fetch_array($result)){
@@ -52,8 +78,10 @@ function displayOwnedSets()
         $password =	$config["db"]["big_lego_database"]["password"];
 		$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!" . "<br/>HOST:$host");
 		
-		$table_row_class = "dark-tr";	
-		foreach($set_id_list as $set_id){			
+		$table_row_class = "dark-tr";
+			
+		foreach($set_id_list as $set_id){	
+			// Toggle row class!		
 			if($table_row_class == "dark-tr")
 				$table_row_class = "light-tr";
 			else
@@ -62,25 +90,27 @@ function displayOwnedSets()
 			// Get set from database	
 			$result = mysqli_query($db, "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_gif, i.has_jpg FROM sets s, images i WHERE '$set_id' = s.SetID AND '$set_id' = i.ItemID");
 			$row = mysqli_fetch_array($result);
+			
+			$SetID = $row['SetID'];
+			
+			// Display the row
 			echo "<tr class='$table_row_class'>";
 			echo "<td>" . $row['SetID'] . 	"</td>";
 			echo "<td>" . $row['Setname'] . "</td>";
 			echo "<td>" . $row['Year'] . 	"</td>";
-			$url  = getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
+			$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
 			echo "<td class='set-image'>" . "<img src='$url'>" . "</td>";
+			
+			echo "<td>"; 
+			echo "<form action='../php/removeset.php' method='post'>";
+			echo "<input type='hidden' value='$SetID' name='SetID'>";
+			echo "<button type='submit' class='add-button'>-</button>";
+			echo "</form>";
+			echo "</td>";
+			
 			echo "</tr>";
 		}
 	}
-}
-
-function addSet($set_id)
-{
-	
-}
-
-function removeSet($set_id)
-{
-
 }
 
 function getSetImageURL($has_gif, $has_jpg, $item_type_id, $set_id)
@@ -90,5 +120,92 @@ function getSetImageURL($has_gif, $has_jpg, $item_type_id, $set_id)
 	
 	return $url;
 }
+
+function searchForSetAndDisplay($search_string){
+	
+	include "config.php";
+	
+	// Open DB
+	$host = $config["db"]["big_lego_database"]["host"];
+	$dbname = $config["db"]["big_lego_database"]["dbname"]; 
+	$db_username = $config["db"]["big_lego_database"]["username"]; 
+	$password =	$config["db"]["big_lego_database"]["password"];
+	$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!" . "<br/>HOST:$host");
+	
+	$page_number = $_SESSION["sets_page"];
+	$offset = ($page_number-1)*5;
+	
+	// Get sets form database
+	$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname = '$search_string' OR s.Year = '$search_string') AND i.ItemID = s.SetID LIMIT $offset,$items_per_page";
+	$result = mysqli_query($db, $query);
+	
+	$table_row_class = "dark-tr";
+	
+	while($row = mysqli_fetch_array($result)) {
+		// Toggle row class!		
+		if($table_row_class == "dark-tr")
+			$table_row_class = "light-tr";
+		else
+			$table_row_class = "dark-tr";
+		
+		$SetID = $row["SetID"]; // We use this more than once
+		
+		// Display the row
+		echo "<tr class='$table_row_class'>";
+		
+		echo "<td>" . $SetID . 	"</td>";
+		echo "<td>" . $row['Setname'] . "</td>";
+		echo "<td>" . $row['Year'] . 	"</td>";
+		$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
+		echo "<td class='set-image'>" . "<img src='$url'>" . "</td>";
+		
+		echo "<td>"; 
+		echo "<form action='../php/addset.php' method='post'>";
+		echo "<input type='hidden' value='$SetID' name='SetID'>";
+		echo "<button type='submit' class='add-button'>+</button>";
+		echo "</form>";
+		echo "</td>";
+		
+		echo "</tr>";
+	}	
+}
+
+function displayPaginationAddSets()
+{
+	$page_number = $_SESSION["sets_page"];
+	
+	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
+	echo "<table class='pagination'>";
+	echo "<tr>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_sets' value='<'/> </td> ";
+	echo "<td>$page_number</td>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_sets' value='>'/> </td> ";
+	echo "</tr> ";
+	echo "</table> ";
+	echo "</form>";
+}
+
+function resetPageNumber()
+{
+	$_SESSION["sets_page"] = 1;
+}
+
+function displayPaginationMypage()
+{
+	$page_number = $_SESSION["mypage_page"];
+	
+	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
+	echo "<table class='pagination'>";
+	echo "<tr>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_mypage' value='<'/> </td> ";
+	echo "<td>$page_number</td>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_mypage' value='>'/> </td> ";
+	echo "</tr> ";
+	echo "</table> ";
+	echo "</form>";
+}
+
+
+
 
 ?>

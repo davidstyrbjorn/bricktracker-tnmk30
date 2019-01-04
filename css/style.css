@@ -354,7 +354,7 @@ td{
 }
 
 .pagination tr .active-pagination a{
-    color:black;
+    color:white;
 }
 .pagination tr .active-pagination a:hover{
     color:white;

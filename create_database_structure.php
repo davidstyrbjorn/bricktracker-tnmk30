@@ -7,12 +7,18 @@ $dbname = $config["db"]["special_admin"]["dbname"];
 $username = $config["db"]["special_admin"]["username"]; 
 $password =	$config["db"]["special_admin"]["password"];
 
+$db = mysqli_connect($host, $username, $password, $dbname) or die("cant connect");
 
-require_once("php/script.php");
-displayOwnedSets();
+//$query = "SELECT * FROM users";
+$query = "SELECT * FROM users_sets WHERE users_sets.user_id = 18";
+$result = mysqli_query($db, $query);
+
+while($row = mysqli_fetch_array($result)){
+	var_dump($row);
+	echo "<br/>";
+}
 
 /*
-
 $db = mysqli_connect($host, $username, $password, $dbname) or die("cant connect");
 //mysqli_query($db, "INSERT INTO users(username, email, pword) VALUES('bitch-emil', 'davidstyrbjorn@gmail.com', 'nonhashedpword')");
 $result = mysqli_query($db, "SELECT * FROM users");
@@ -22,16 +28,6 @@ while($row = mysqli_fetch_array($result)){
 	echo $row["username"] . ", " . $row["email"] . $row["user_id"] . "<br/>";
 }
 
-//
-////$dsn = "mysql:host=$host;dbname:$dbname";
-////$pdo = null;
-////try{
-////	$pdo = new PDO($dsn, $username, $password);
-////} catch(PDOException $e){
-////	echo $e->getMessage();
-////	die();
-////}
-//
 $db = mysqli_connect($host, $username, $password, $dbname) or die("oof");
 $query = "CREATE TABLE users_sets(
 user_id INTEGER NOT NULL,
@@ -57,6 +53,8 @@ if(mysqli_query($db, $query)){
 else{
 	echo "Error: " . $sql . "<br>" . mysqli_error($db);
 }
+
+
 */
 
 ////$query2 = $pdo->prepare("DESCRIBE test");

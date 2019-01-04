@@ -37,3 +37,11 @@ ini_set("display_errors",1);
 $password_min_length = 6;
 $username_min_length = 3;
 $hash = "md5";
+
+// Display values
+$items_per_page = 5;
+
+// DEBUG USER
+// Username: lego_grabben
+// Email: lego_grabben@lego.com
+// Lösenord: majsmajsmajs

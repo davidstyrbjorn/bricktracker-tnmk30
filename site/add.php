@@ -12,9 +12,15 @@
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<?php
+		// Start session, alot of session variables in use!
 		session_start();
+		
+		// Include all needed php files
 		include "../php/config.php";
 		include "../php/script.php";
+		
+		// Lets do this so the mypage page is back to 1 when the player goes back
+		$_SESSION["mypage_page"] = 1;
 		?>
 		
     </head>
@@ -38,7 +44,7 @@
         <header id="hover-header">
             <div class="header-window">
                 <h1 id="header-window-text">ADD</h1>
-                <h5>Keep track of your LEGO collection online with BrickTracker! Sign up today for a place to easily store each set that you've purchased.</h5>
+                <h5>Add sets to your Lego collection!</h5>
                
             </div>
         </header>
@@ -60,25 +66,29 @@
 				  
 				  <?php
 				  if(isset($_GET["search_string"])){
-					  searchForSetAndDisplay($_GET["search_string"]);
+						// New search? if so reset page number
+						if(isset($_SESSION["last_search"])){
+							if($_SESSION["last_search"] != $_GET["search_string"]){
+								resetPageNumber();
+							}
+						}
+
+						// Set last search to new search string
+						$_SESSION["last_search"] = $_GET["search_string"];
+						
+						// Do some actual displaying
+						searchForSetAndDisplay($_SESSION["last_search"]);
 				  }
 				  ?>
 				 
                 </table>
 				
-            <table class="pagination">
-                <tr>
-                    <td><a href=""><<</a></td>
-                    <td><a href=""><</a></td>
-                    <td class="active-pagination"><a href="">1</a></td>
-                    <td><a href="">2</a></td>
-                    <td><a href="">3</a></td>
-                    <td><a href="">></a></td>
-                    <td><a href="">>></a></td>
-                </tr>
-            </table>
-        
-        
+				<?php
+				if(isset($_GET["search_string"])){
+					displayPaginationAddSets();
+				}
+				?>
+			
         </div>
         
         <footer>
