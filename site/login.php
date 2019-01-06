@@ -31,6 +31,18 @@
         <div class="outer-login">
             <h2 class="login-title">BrickTracker Login</h2>
             <div class="login-window">
+			
+				<?php
+				if(isset($_GET["fail_message"])){
+					if($_GET["fail_message"] == "user_not_found"){
+						echo "<p class='fail_message'>User not found!</p>";
+					}
+					else{
+						echo "<p class='fail_message'>Wrong password!</p>";
+					}
+				}
+				?>
+				
                 <form action="../php/login_validate.php" method="post">
                     <h5 class="label">Username or Email</h5>
                     <input type="text" name="identification">

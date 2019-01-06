@@ -395,6 +395,13 @@ td{
     background: whitesmoke;
     border-radius:3px;
 }
+
+.login-window .fail_message{
+	font-weight: bold;
+	text-decoration: underline;
+	color: #ba2337;
+}
+
 .outer-login{
     padding:200px 0 400px;
 }

@@ -23,7 +23,7 @@
                         <a class="nav-item" href="">ADD</a>
                     </div>
                     <div class="nav-items-right">
-                        <a class="nav-item nav-item-right" href="">LOG IN</a>
+                        <a class="nav-item nav-item-right" href="login.php">LOG IN</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                 
 
                   <div class="container signin">
-                    <p>Already have an account? <a href="#">Sign in</a>.</p>
+                    <p>Already have an account? <a href="login.php">Sign in</a>.</p>
                   </div>
                 </form>
                 
