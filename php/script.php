@@ -118,7 +118,7 @@ function displayOwnedSets()
 }
 
 // Given a search strings echoes a bunch of sets
-function searchForSetAndDisplay($search_string){
+function searchForSetAndDisplay($search_string, $newSearch){
 	
 	include "config.php";
 	
@@ -129,9 +129,16 @@ function searchForSetAndDisplay($search_string){
 	$password =	$config["db"]["big_lego_database"]["password"];
 	$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!" . "<br/>HOST:$host");
 	
+	// First a query for the total amount of rows in the search
+	if($newSearch){
+		$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname = '$search_string' OR s.Year = '$search_string') AND i.ItemID = s.SetID";
+		$result = mysqli_query($db, $query);
+		$_SESSION["search_count"] = $result->num_rows;
+	}
+
 	$page_number = $_SESSION["sets_page"];
 	$offset = ($page_number-1)*5;
-	
+
 	// Get sets form database
 	$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname = '$search_string' OR s.Year = '$search_string') AND i.ItemID = s.SetID LIMIT $offset,$items_per_page";
 	$result = mysqli_query($db, $query);
@@ -176,13 +183,22 @@ function searchForSetAndDisplay($search_string){
 
 function displayPaginationAddSets()
 {
+	include "config.php";
+
 	$page_number = $_SESSION["sets_page"];
+	$max_page_number = 0;
+	if($items_per_page >= $_SESSION['search_count']){
+		$max_page_number = 1;
+	}
+	else{
+		$max_page_number = $_SESSION['search_count'] / $items_per_page;
+	}
 	
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
 	echo "<table class='pagination'>";
 	echo "<tr>";
-	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_sets' value='<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M14.71 15.88L10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z\"/></svg>'/> </td>";
-	echo "<td>$page_number</td>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_sets' value='<' </td>";
+	echo "<td>$page_number / " . $_SESSION['search_count']/$items_per_page . "</td>";
 	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_sets' value='>'/> </td> ";
 	echo "</tr> ";
 	echo "</table> ";

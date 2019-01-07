@@ -68,11 +68,18 @@
                   </tr>
 				  
 				  <?php
+				  // Display the search
 				  if(isset($_GET["search_string"])){
+
+						$newSearch = true;
 						// New search? if so reset page number
 						if(isset($_SESSION["last_search"])){
 							if($_SESSION["last_search"] != $_GET["search_string"]){
 								resetPageNumber();
+								$newSearch = true;
+							}
+							else{
+								$newSearch = false;
 							}
 						}
 
@@ -80,7 +87,7 @@
 						$_SESSION["last_search"] = $_GET["search_string"];
 						
 						// Do some actual displaying
-						searchForSetAndDisplay($_SESSION["last_search"]);
+						searchForSetAndDisplay($_SESSION["last_search"], $newSearch);
 				  }
 				  ?>
 				 
