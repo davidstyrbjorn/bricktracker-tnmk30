@@ -37,8 +37,9 @@ function displayUserInfo()
 		$username = $row["username"];
 	}
 	
+	$set_count = getUserSetCount();
 	echo "<h1>" . $username . "</h1>";
-	echo ""  . "";
+	echo "<h3>" . "You own " . $set_count . " sets!" . "<h3>";
 	echo "<h5>" . $description . "</h3>";
 }
 
@@ -239,7 +240,26 @@ function userHasSet($set_id)
 		return true;
 	}
 	return false;
+}
 
+function getUserSetCount()
+{
+	include "config.php";
+
+	// Query our database and check if the user has $set_id 
+    // open DB
+    $host = $config["db"]["special_edit"]["host"];
+    $dbname = $config["db"]["special_edit"]["dbname"]; 
+    $db_username = $config["db"]["special_edit"]["username"]; 
+    $password =	$config["db"]["special_edit"]["password"];
+    $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
+
+	$user_id = $_SESSION["user_id"];
+	$query = "SELECT * FROM users_sets";
+	$result = mysqli_query($db, $query);
+	$num_of_rows = $result->num_rows;
+
+	return $num_of_rows;
 }
 
 ?>
