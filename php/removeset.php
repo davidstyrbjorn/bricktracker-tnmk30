@@ -17,6 +17,9 @@ $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to 
 $query = "DELETE FROM users_sets WHERE users_sets.set_id = '$SetID' AND users_sets.user_id = '$UserID' LIMIT 1";
 mysqli_query($db, $query);
 
+// Decrement user set count by one
+$_SESSION["user_set_count"]--;
+
 // Redirect back to add page
 header("location:../site/mypage.php");
 

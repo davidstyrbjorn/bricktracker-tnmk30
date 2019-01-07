@@ -55,8 +55,6 @@
         </header>
         <div class="wrapper">
             
-            
-            
                 <table class="lego-table">
                   <tr>
                     <th>ID</th>
@@ -73,7 +71,9 @@
                 </table>
 
         <?php
-		displayPaginationMypage();
+		if(getUserSetCount() > 0){
+			displayPaginationMypage();
+		}
 		?>
         
         </div>

@@ -20,6 +20,9 @@ $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to 
 $query = "INSERT INTO users_sets (user_id, set_id, add_time) VALUES('$UserID', '$SetID', '$date')";
 mysqli_query($db, $query);
 
+// Increment user set count
+$_SESSION["user_set_count"]++;
+
 // Redirect back to add page
 $last_search = $_SESSION["last_search"];
 header("location:../site/add.php? search_string=$last_search");
