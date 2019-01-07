@@ -35,7 +35,7 @@
                 <div class="nav-items">
                     <div class="nav-items-left">
                         <a class="nav-item" href="home.php">BRICK_TRACKER</a>
-                        <a class="nav-item" href="mypage.php">SETS</a>
+                        <a class="nav-item" href="mypage.php">MY PAGE</a>
                         <a class="nav-item" href="add.php">ADD</a>
                     </div>
                     <div class="nav-items-right">

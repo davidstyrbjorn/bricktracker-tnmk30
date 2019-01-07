@@ -431,6 +431,17 @@ td{
     margin-top:10px;
 }
 
+.logo{
+    font-family: 'Varela Round', sans-serif;
+    color:#002f4c;
+    font-weight: bolder;
+   
+}
+.logo span{
+    color:#FE1F02;
+}
+    
+
 @media only screen and (max-width: 1200px) {
 
     .wrapper{
