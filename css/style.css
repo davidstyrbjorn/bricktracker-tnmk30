@@ -67,10 +67,13 @@ nav .nav-items{
     padding: 8px 13px;
     background: #cc0000;
     border-radius: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12),
+            0 2px 4px 0 rgba(0,0,0,0.08);
 }
 .nav-item-right:hover{
     background:#b30000;
     border-radius: 1px;
+    
 }
 
 /*CSS EFFECTS*/
@@ -172,7 +175,9 @@ header{
     border-radius:3px;
     position:absolute;
     margin:20px;
-    margin-left:-83.415px
+    margin-left:-83.415px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12),
+            0 2px 4px 0 rgba(0,0,0,0.08);
 }
 
 .register-btn:hover, .submit-btn:hover{
@@ -202,6 +207,8 @@ header{
     border-radius:2px;
     margin:10px;
     border: solid 1px #E2BF57;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12),
+            0 2px 4px 0 rgba(0,0,0,0.08);
 }
 
 article{
