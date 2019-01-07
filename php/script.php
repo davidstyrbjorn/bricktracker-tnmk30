@@ -9,7 +9,6 @@ function displayUserInfo()
 	// Format 
 	// User name is <h3>
 	// Description is <h5>
-	// Stats is <ul> <li></li> </ul>
 	
 	include "config.php";
 	
@@ -56,6 +55,10 @@ function displayOwnedSets()
 		
 		include "config.php";
 		
+		if(!isset($_SESSION["user_set_count"])){
+			$_SESSION["user_set_count"] = getUserSetCount();
+		}
+
         // open DB
         $host = $config["db"]["special_edit"]["host"];
         $dbname = $config["db"]["special_edit"]["dbname"]; 
@@ -64,7 +67,7 @@ function displayOwnedSets()
         $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
         
 		$page_number = $_SESSION["mypage_page"];
-		$offset = ($page_number-1)*5;
+		$offset = ($page_number-1)*$items_per_page;		
         // Get all the sets id the user has
 		$query = "SELECT * FROM users_sets WHERE '$user_id' = users_sets.user_id  ORDER BY add_time DESC LIMIT $offset, $items_per_page";
         $result = mysqli_query($db, $query);
@@ -137,7 +140,7 @@ function searchForSetAndDisplay($search_string, $newSearch){
 	}
 
 	$page_number = $_SESSION["sets_page"];
-	$offset = ($page_number-1)*5;
+	$offset = ($page_number-1)*$items_per_page;
 
 	// Get sets form database
 	$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname = '$search_string' OR s.Year = '$search_string') AND i.ItemID = s.SetID LIMIT $offset,$items_per_page";
@@ -154,6 +157,7 @@ function searchForSetAndDisplay($search_string, $newSearch){
 		
 		$SetID = $row["SetID"]; // We use this more than once
 		
+		// Check if the user has set
 		$hasSet = userHasSet($SetID);
 		if($hasSet == true){
 			$table_row_class .= " has"; 
@@ -167,7 +171,6 @@ function searchForSetAndDisplay($search_string, $newSearch){
 		echo "<td>" . $row['Year'] . 	"</td>";
 		$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
 		echo "<td class='set-image'>" . "<img src='$url'>" . "</td>";
-		
 		echo "<td>"; 
 		echo "<form action='../php/addset.php' method='post'>";
 		echo "<input type='hidden' value='$SetID' name='SetID'>";
@@ -187,18 +190,18 @@ function displayPaginationAddSets()
 
 	$page_number = $_SESSION["sets_page"];
 	$max_page_number = 0;
-	if($items_per_page >= $_SESSION['search_count']){
+	if($_SESSION['search_count'] < $items_per_page){
 		$max_page_number = 1;
 	}
 	else{
-		$max_page_number = $_SESSION['search_count'] / $items_per_page;
+		$max_page_number = (int)($_SESSION['search_count'] / $items_per_page);
 	}
 	
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
 	echo "<table class='pagination'>";
 	echo "<tr>";
 	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_sets' value='<' </td>";
-	echo "<td>$page_number / " . $_SESSION['search_count']/$items_per_page . "</td>";
+	echo "<td>$page_number / " . $max_page_number . "</td>";
 	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_sets' value='>'/> </td> ";
 	echo "</tr> ";
 	echo "</table> ";
@@ -212,13 +215,23 @@ function resetPageNumber()
 
 function displayPaginationMypage()
 {
+	include "config.php";
+
 	$page_number = $_SESSION["mypage_page"];
+
+	$max_page_number = 0;
+	if($_SESSION['user_set_count'] < $items_per_page){
+		$max_page_number = 1;
+	}
+	else{
+		$max_page_number = (int)(($_SESSION['user_set_count'] / $items_per_page)+1.0);
+	}
 	
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
 	echo "<table class='pagination'>";
 	echo "<tr>";
 	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_mypage' value='<'/> </td> ";
-	echo "<td>$page_number</td>";
+	echo "<td>$page_number / " . $max_page_number . "</td>";
 	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_mypage' value='>'/> </td> ";
 	echo "</tr> ";
 	echo "</table> ";
@@ -271,7 +284,7 @@ function getUserSetCount()
     $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
 
 	$user_id = $_SESSION["user_id"];
-	$query = "SELECT * FROM users_sets";
+	$query = "SELECT * FROM users_sets WHERE users_sets.user_id = '$user_id'";
 	$result = mysqli_query($db, $query);
 	$num_of_rows = $result->num_rows;
 
