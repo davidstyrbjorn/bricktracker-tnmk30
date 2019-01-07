@@ -19,7 +19,7 @@
                 <div class="nav-items">
                     <div class="nav-items-left">
                         <a class="nav-item" href="home.php">BRICK_TRACKER</a>
-                        <a class="nav-item" href="home.php">SETS</a>
+                        <a class="nav-item" href="home.php">MY PAGE</a>
                         <a class="nav-item" href="home.php">ADD</a>
                     </div>
                     <div class="nav-items-right">
@@ -53,7 +53,7 @@
                         <h2>Database</h2>
                         <p>Our Database contains LEGO sets and pieces with images as well as basic descriptions. For users, this means that you can check out a set that you own, or perhaps one that you're looking to purchase.</p>
                     </article>
-                    <img src="https://i.imgur.com/QgRoB0Z.jpg" alt="About">
+                    <img src="https://i.imgur.com/shl3c81.jpg" alt="About">
                 </div>
             </div>
             
