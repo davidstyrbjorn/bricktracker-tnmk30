@@ -1,6 +1,7 @@
 Kom ihåg:
 
 - Räkna en total
+- Visa sidor med en total alltså sidonummret kommer se ut: 1/67, 2/67, 3/67....osv.
 - Öka sido nummret
 - Om inga sets hittas på mypage byt till en knapp som leder till add
 - Om det inte finns fler sidor att visa, visa inga pilar/pilar som pekar vidare

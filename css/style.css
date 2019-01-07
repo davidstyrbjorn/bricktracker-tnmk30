@@ -333,22 +333,23 @@ td{
 }
 
 .pagination{
-    width:200px;
+    
     margin:20px auto 20px auto;
     font-family: 'Varela Round', sans-serif;
     
 }
 
-.pagination tr td a{
+.pagination tr td, .pagination-button{
     font-family: 'Varela Round', sans-serif;
     color:white;
-    padding: 10px 15px;
+    
     border-radius: 3px;
 }
 .pagination tr td{
+    padding:0;
     border-radius: 3px;
 }
-.pagination tr td:hover{
+.pagination-button:hover{
     background: rgba(0, 0, 0, 0.5);
 }
 
@@ -365,8 +366,8 @@ td{
 
 .pagination-button{
     border:0;
-    padding:0;
-    width:100%;
+    
+   
     background:0;
 }
 
