@@ -84,7 +84,6 @@ nav .nav-items{
     transform: scale(1.008);
     transition: 0.2s;
     transition-timing-function: ease-in-out;
-
 }
 
 #hover-header:hover{
@@ -323,6 +322,10 @@ td{
 
 .light-tr{
     background: #d9e6f2;
+}
+
+.has{
+    background: green;
 }
 
 .light-tr:hover, .dark-tr:hover{

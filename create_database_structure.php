@@ -10,12 +10,9 @@ $password =	$config["db"]["special_admin"]["password"];
 $db = mysqli_connect($host, $username, $password, $dbname) or die("cant connect");
 
 //$query = "SELECT * FROM users";
-$query = "SELECT * FROM users_sets WHERE users_sets.user_id = 18";
-$result = mysqli_query($db, $query);
-
-while($row = mysqli_fetch_array($result)){
-	var_dump($row);
-	echo "<br/>";
+$q = mysqli_query($db, 'DESCRIBE users_sets');
+while($row = mysqli_fetch_array($q)) {
+    echo "{$row['Field']} - {$row['Type']}\n";
 }
 
 /*

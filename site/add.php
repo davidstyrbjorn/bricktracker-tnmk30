@@ -21,6 +21,9 @@
 		
 		// Lets do this so the mypage page is back to 1 when the player goes back
 		$_SESSION["mypage_page"] = 1;
+		if(!isset($_SESSION["sets_page"])){
+			$_SESSION["sets_page"] = 1;
+		}
 		?>
 		
     </head>

@@ -19,7 +19,7 @@ else if(isset($_POST["pagination_right_sets"])){
 }
 else if(isset($_POST["pagination_left_mypage"])){
 	$go_back_to_mypage = true;
-	if($_SESSION["mypage_page"]){
+	if($_SESSION["mypage_page"] > 1){
 		$_SESSION["mypage_page"]--;
 	}
 }

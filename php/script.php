@@ -3,6 +3,7 @@
 Use session to get user_id and to check if user is logged in
 */
 
+// Echoes username etc on the mypage
 function displayUserInfo()
 {
 	// Format 
@@ -17,7 +18,7 @@ function displayUserInfo()
 		
 	// Get user name
 	if(!isset($_SESSION["logged_in"])){
-		//return;
+		return;
 	}
 	if($_SESSION["logged_in"]){
 		
@@ -40,6 +41,7 @@ function displayUserInfo()
 	echo "<h5>" . $description . "</h3>";
 }
 
+// Echo html tables of the current users owned sets
 function displayOwnedSets()
 {
     // Make sure the user is logged in!
@@ -62,7 +64,7 @@ function displayOwnedSets()
 		$page_number = $_SESSION["mypage_page"];
 		$offset = ($page_number-1)*5;
         // Get all the sets id the user has
-		$query = "SELECT * FROM users_sets WHERE '$user_id' = users_sets.user_id LIMIT $offset, $items_per_page";
+		$query = "SELECT * FROM users_sets WHERE '$user_id' = users_sets.user_id  ORDER BY add_time DESC LIMIT $offset, $items_per_page";
         $result = mysqli_query($db, $query);
 		$set_id_list = array();
         while($row = mysqli_fetch_array($result)){
@@ -95,7 +97,7 @@ function displayOwnedSets()
 			
 			// Display the row
 			echo "<tr class='$table_row_class'>";
-			echo "<td>" . $row['SetID'] . 	"</td>";
+			echo "<td>" . $SetID . 	"</td>";
 			echo "<td>" . $row['Setname'] . "</td>";
 			echo "<td>" . $row['Year'] . 	"</td>";
 			$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
@@ -113,14 +115,7 @@ function displayOwnedSets()
 	}
 }
 
-function getSetImageURL($has_gif, $has_jpg, $item_type_id, $set_id)
-{
-	$url = "$item_type_id/$set_id";
-	$url .= ($has_gif) ? ".gif" : ".jpg";
-	
-	return $url;
-}
-
+// Given a search strings echoes a bunch of sets
 function searchForSetAndDisplay($search_string){
 	
 	include "config.php";
@@ -150,6 +145,11 @@ function searchForSetAndDisplay($search_string){
 		
 		$SetID = $row["SetID"]; // We use this more than once
 		
+		$hasSet = userHasSet($SetID);
+		if($hasSet == true){
+			$table_row_class .= " has"; 
+		}
+
 		// Display the row
 		echo "<tr class='$table_row_class'>";
 		
@@ -169,6 +169,8 @@ function searchForSetAndDisplay($search_string){
 		echo "</tr>";
 	}	
 }
+
+/* UGLY PAGINATION FUNCTIONS */
 
 function displayPaginationAddSets()
 {
@@ -205,7 +207,38 @@ function displayPaginationMypage()
 	echo "</form>";
 }
 
+// Helper for getting image url for a set given a set of parameters
+function getSetImageURL($has_gif, $has_jpg, $item_type_id, $set_id)
+{
+	$url = "$item_type_id/$set_id";
+	$url .= ($has_gif) ? ".gif" : ".jpg";
+	
+	return $url;
+}
 
+// Check if the user has a set in his/hers inventory
+function userHasSet($set_id)
+{
+	include "config.php";
 
+	// Query our database and check if the user has $set_id 
+    // open DB
+    $host = $config["db"]["special_edit"]["host"];
+    $dbname = $config["db"]["special_edit"]["dbname"]; 
+    $db_username = $config["db"]["special_edit"]["username"]; 
+    $password =	$config["db"]["special_edit"]["password"];
+    $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
+
+	$user_id = $_SESSION["user_id"];
+	$query = "SELECT * FROM users_sets WHERE users_sets.user_id = '$user_id' AND users_sets.set_id = '$set_id' LIMIT 1";
+
+	$result = mysqli_query($db, $query);
+
+	if($result->num_rows > 0){
+		return true;
+	}
+	return false;
+
+}
 
 ?>
