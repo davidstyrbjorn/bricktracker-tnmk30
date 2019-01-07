@@ -37,7 +37,8 @@ function displayUserInfo()
 		$username = $row["username"];
 	}
 	
-	echo "<h3>" . $username . "</h3>";
+	echo "<h1>" . $username . "</h1>";
+	echo ""  . "";
 	echo "<h5>" . $description . "</h3>";
 }
 

@@ -35,10 +35,10 @@
 				<?php
 				if(isset($_GET["fail_message"])){
 					if($_GET["fail_message"] == "user_not_found"){
-						echo "<p class='fail_message'>User not found!</p>";
+						echo "<p class='fail_message'>Wrong username or password!</p>";
 					}
 					else{
-						echo "<p class='fail_message'>Wrong password!</p>";
+						echo "<p class='fail_message'>Wrong username or password!</p>";
 					}
 				}
 				?>
