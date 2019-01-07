@@ -123,7 +123,8 @@ header{
     color:aliceblue;
     text-align: center;
     transition: 0.2s;
-    transition-timing-function: ease-in-out;    
+    transition-timing-function: ease-in-out;  
+    background:rgba(0,0,0,0.35);
 }
 .header-window h5{
     width:800px;
@@ -179,6 +180,9 @@ header{
     background:#015B95;
     
 }
+
+
+
 
 /*ARTICLE / MAIN BODY*/
 
@@ -442,6 +446,17 @@ td{
     margin-top:10px;
 }
 
+.logo{
+    font-family: 'Varela Round', sans-serif;
+    color:#002f4c;
+    font-weight: bolder;
+   
+}
+.logo span{
+    color:#FE1F02;
+}
+    
+
 @media only screen and (max-width: 1200px) {
 
     .wrapper{
@@ -468,7 +483,6 @@ td{
         font-size:16px;
         width:80%;
     }
-    
     
 }
 
