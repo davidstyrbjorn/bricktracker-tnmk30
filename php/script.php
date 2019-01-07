@@ -190,11 +190,11 @@ function displayPaginationAddSets()
 
 	$page_number = $_SESSION["sets_page"];
 	$max_page_number = 0;
-	if($_SESSION['search_count'] < $items_per_page){
+	if($_SESSION['search_count'] <= $items_per_page){
 		$max_page_number = 1;
 	}
 	else{
-		$max_page_number = (int)($_SESSION['search_count'] / $items_per_page);
+		$max_page_number = (int)(round($_SESSION['search_count'] / $items_per_page));
 	}
 	
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
@@ -220,13 +220,13 @@ function displayPaginationMypage()
 	$page_number = $_SESSION["mypage_page"];
 
 	$max_page_number = 0;
-	if($_SESSION['user_set_count'] < $items_per_page){
+	if($_SESSION['user_set_count'] <= $items_per_page){
 		$max_page_number = 1;
 	}
 	else{
-		$max_page_number = (int)(($_SESSION['user_set_count'] / $items_per_page)+1.0);
+		$max_page_number = (int)(round(($_SESSION['user_set_count'] / $items_per_page)+0.5));
 	}
-	
+
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
 	echo "<table class='pagination'>";
 	echo "<tr>";

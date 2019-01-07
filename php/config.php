@@ -39,7 +39,7 @@ $username_min_length = 3;
 $hash = "md5";
 
 // Display values
-$items_per_page = 15;
+$items_per_page = 5;
 
 // DEBUG USER
 // Username: lego_grabben

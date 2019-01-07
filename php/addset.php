@@ -3,6 +3,7 @@
 session_start();
 
 require "config.php";
+include "script.php";
 
 $SetID = $_POST["SetID"];
 $UserID = $_SESSION["user_id"];
@@ -20,8 +21,8 @@ $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to 
 $query = "INSERT INTO users_sets (user_id, set_id, add_time) VALUES('$UserID', '$SetID', '$date')";
 mysqli_query($db, $query);
 
-// Increment user set count
-$_SESSION["user_set_count"]++;
+// new set count
+$_SESSION["user_set_count"] = getUserSetCount();
 
 // Redirect back to add page
 $last_search = $_SESSION["last_search"];

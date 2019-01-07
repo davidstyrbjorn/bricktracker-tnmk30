@@ -3,8 +3,9 @@
     "",
     "\\css",
     "\\php",
-    "\\site"
+    "\\site",
+    "\\txt"
   ],
-  "SelectedNode": "\\site\\add.php",
+  "SelectedNode": "\\php\\pagination_page_switch.php",
   "PreviewInSolutionExplorer": false
 }

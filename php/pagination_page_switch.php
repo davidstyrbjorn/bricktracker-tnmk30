@@ -24,9 +24,9 @@ else if(isset($_POST["pagination_right_sets"])){
 	}
 	else{
 		$max_page_number = (int)($_SESSION['search_count'] / $items_per_page);
-	}
+	}	
 
-	if($_SESSION["sets_page"] < $max_page_number) {
+	if($_SESSION["sets_page"] <= $max_page_number) {
 		$_SESSION["sets_page"]++;
 	}
 	$go_back_to_search = true;
@@ -38,8 +38,21 @@ else if(isset($_POST["pagination_left_mypage"])){
 	}
 }
 else if(isset($_POST["pagination_right_mypage"])){
+
+	include "config.php";
+
+	$max_page_number = 0;
+	if($_SESSION['user_set_count'] <= $items_per_page){
+		$max_page_number = 1;
+	}
+	else{
+		$max_page_number = (int)(round(($_SESSION['user_set_count'] / $items_per_page)+0.5));
+	}
+
+	if($_SESSION["mypage_page"] < $max_page_number){
+		$_SESSION["mypage_page"]++;
+	}
 	$go_back_to_mypage = true;
-	$_SESSION["mypage_page"]++;
 }
 
 if($go_back_to_search){
