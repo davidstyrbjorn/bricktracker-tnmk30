@@ -1,0 +1,6 @@
+Kom ihåg:
+
+- Räkna en total
+- Öka sido nummret
+- Om inga sets hittas på mypage byt till en knapp som leder till add
+- Om det inte finns fler sidor att visa, visa inga pilar/pilar som pekar vidare
