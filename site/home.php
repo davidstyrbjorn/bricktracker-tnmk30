@@ -10,6 +10,11 @@
   		<link  href="../css/style.css" rel="stylesheet"/>
   		<script src=""></script>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<?php
+		session_start();
+		?>
+		
     </head>
     
     <body>
@@ -18,12 +23,61 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
+					
+						<!--
                         <a class="nav-item" href="home.php">BRICK_TRACKER</a>
-                        <a class="nav-item" href="home.php">MY PAGE</a>
-                        <a class="nav-item" href="home.php">ADD</a>
+                        <a class="nav-item-grayed" href="home.php">MY PAGE</a>
+                        <a class="nav-item-grayed" href="home.php">ADD</a>
+						-->
+					
+						<?php
+						// Are we logged in?
+						$logged_in = false;
+						if(isset($_SESSION["logged_in"])){
+							if($_SESSION["logged_in"]){
+								$logged_in = true;
+							}
+						}
+																		
+						if($logged_in){
+							echo "<a class='nav-item' href='home.php'>BRICK_TRACKER</a>";
+							echo "<a class='nav-item' href='mypage.php'>MY PAGE</a>";
+							echo "<a class='nav-item' href='add.php'>ADD</a>";
+						}
+						else{
+							echo "<a class='nav-item' href='home.php'>BRICK_TRACKER</a>";
+							echo "<a class='nav-item-grayed' href='#'>MY PAGE</a>";
+							echo "<a class='nav-item-grayed' href='#'>ADD</a>";
+						}
+						
+						?>
+		
                     </div>
                     <div class="nav-items-right">
+					
+						<?php
+						// Are we logged in?
+						$logged_in = false;
+						if(isset($_SESSION["logged_in"])){
+							if($_SESSION["logged_in"]){
+								$logged_in = true;
+							}
+						}
+						
+						// Sign in our out button?
+						if(!$logged_in){
+							echo "<a class='nav-item nav-item-right' href='login.php'>LOG IN</a>";
+						}
+						else{
+							echo "<form action='../php/logout.php'>";
+							echo "<input class='nav-item nav-item-right' type='submit' value='LOG OUT'>";
+							echo "</form>";
+						}
+						?>
+					
+						<!--
                         <a class="nav-item nav-item-right" href="login.php">LOG IN</a>
+						-->
                     </div>
                 </div>
             </div>

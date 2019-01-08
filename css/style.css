@@ -56,6 +56,13 @@ nav .nav-items{
     text-decoration:none;
     color:white;
 }
+
+.nav-item-grayed{
+	padding: 15px 20px;
+	text-decoration: line-through;
+	color:white;
+}
+
 .nav-item:hover{
     background:#2572A4;
     border-radius: 2px;
