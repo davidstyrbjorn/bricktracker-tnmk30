@@ -186,16 +186,9 @@ function searchForSetAndDisplay($search_string, $newSearch){
 
 function displayPaginationAddSets()
 {
-	include "config.php";
-
+	// Page related
 	$page_number = $_SESSION["sets_page"];
-	$max_page_number = 0;
-	if($_SESSION['search_count'] <= $items_per_page){
-		$max_page_number = 1;
-	}
-	else{
-		$max_page_number = (int)(round($_SESSION['search_count'] / $items_per_page));
-	}
+	$max_page_number = getNumberOfPages($_SESSION['search_count']);
 	
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
 	echo "<table class='pagination'>";
@@ -215,17 +208,9 @@ function resetPageNumber()
 
 function displayPaginationMypage()
 {
-	include "config.php";
-
+	// Page related
 	$page_number = $_SESSION["mypage_page"];
-
-	$max_page_number = 0;
-	if($_SESSION['user_set_count'] <= $items_per_page){
-		$max_page_number = 1;
-	}
-	else{
-		$max_page_number = (int)(round(($_SESSION['user_set_count'] / $items_per_page)+0.5));
-	}
+	$max_page_number = getNumberOfPages($_SESSION['user_set_count']);
 
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
 	echo "<table class='pagination'>";
@@ -291,4 +276,19 @@ function getUserSetCount()
 	return $num_of_rows;
 }
 
+// Given a total, calculates number of pages using config values for items per page
+function getNumberOfPages($total_item_count){
+	
+	include "config.php";
+	
+	$page_number = 0;
+	if($total_item_count <= $items_per_page){
+		$page_number = 1;
+	}
+	else{
+		$page_number = ceil($total_item_count / $items_per_page);
+	}
+	
+	return $page_number;
+}
 ?>

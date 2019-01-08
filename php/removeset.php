@@ -21,6 +21,13 @@ mysqli_query($db, $query);
 // new set count
 $_SESSION["user_set_count"] = getUserSetCount();
 
+// Make sure we're not "overeaching" a page now that we've removed something
+$page_number = $_SESSION["mypage_page"];
+$max_page_number = getNumberOfPages($_SESSION['user_set_count']);
+if($page_number > $max_page_number){
+	$_SESSION["mypage_page"]--;
+}
+
 // Redirect back to add page
 header("location:../site/mypage.php");
 
