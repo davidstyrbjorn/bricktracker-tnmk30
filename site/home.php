@@ -72,20 +72,15 @@
 						
 						// Sign in our out button?
 						if(!$logged_in){
-                            echo "<p class='username'>";
-                            echo PUT SCRIPT HERE;
-                            echo "</p>";
+                            
 							echo "<a class='nav-item nav-item-right' href='login.php'>LOG IN</a>";
 						}
 						else{
-<<<<<<< HEAD
-                            
-							echo "<form action='../php/logout.php'>";
-							echo "<input class='nav-item nav-item-right' type='submit' value='LOG OUT'>";
-							echo "</form>";
-=======
+                            echo "<p class='username'>";
+                            echo getUserName($_SESSION['id']);
+                            echo "</p>";
 							echo "<a class='nav-item nav-item-right' href='../php/logout.php'>LOG OUT</a>";
->>>>>>> 46029a045f6dc66d2f44b6c440383dd2d75ef39b
+
 						}
 						?>
 					
