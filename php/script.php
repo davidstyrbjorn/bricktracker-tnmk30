@@ -127,8 +127,10 @@ function searchForSetAndDisplay($search_string, $newSearch){
 	
 	// First a query for the total amount of rows in the search
 	if($newSearch){
-		$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname LIKE '%". $_search_string ."%' OR s.Year = '$search_string') AND i.ItemID = s.SetID";
+		$query = "SELECT * FROM sets s, images i 
+		WHERE (s.SetID = '$_search_string' OR s.Setname LIKE '%". $_search_string ."%' OR s.Year = '$_search_string') AND i.ItemID = s.SetID";
 		$result = mysqli_query($db, $query);
+		
 		$_SESSION["search_count"] = $result->num_rows;
 	}
 
@@ -141,7 +143,7 @@ function searchForSetAndDisplay($search_string, $newSearch){
 	ORDER BY s.Setname LIKE CONCAT('$_search_string', '%') DESC, 
 	IFNULL(NULLIF(INSTR(s.Setname, CONCAT(' ', '$_search_string')), 0), 99999),
 	IFNULL(NULLIF(INSTR(s.Setname, '$_search_string'), 0), 99999),
-	s.Setname
+	s.Setname, s.Year DESC
 	LIMIT $offset,$items_per_page";                                            
 	$result = mysqli_query($db, $query);
 	echo mysqli_error($db);
@@ -202,7 +204,16 @@ function displayPaginationAddSets()
 
 function resetPageNumber()
 {
-	$_SESSION["sets_page"] = 1;
+	if(isset($_SESSION["sets_page"])){
+		$_SESSION["sets_page"] = 1;
+	}
+}
+
+function resetMyPage()
+{
+	if(isset($_SESSION["mypage_page"])){
+		$_SESSION["mypage_page"] = 1;
+	}
 }
 
 function displayPaginationMypage()

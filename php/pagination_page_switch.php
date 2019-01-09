@@ -19,7 +19,7 @@ else if(isset($_POST["pagination_right_sets"])){
 
 	$max_page_number = getNumberOfPages($_SESSION['search_count']);
 
-	if($_SESSION["sets_page"] <= $max_page_number) {
+	if($_SESSION["sets_page"] < $max_page_number) {
 		$_SESSION["sets_page"]++;
 	}
 	$go_back_to_search = true;
