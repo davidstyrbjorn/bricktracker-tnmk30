@@ -92,7 +92,7 @@
 						$_SESSION["last_search"] = $_GET["search_string"];
 						
 						// Do some actual displaying
-						searchForSetAndDisplay($_SESSION["last_search"], $newSearch);
+						searchForSetAndDisplay(filter_input(INPUT_GET, "search_string", FILTER_SANITIZE_SPECIAL_CHARS), $newSearch);
 				  }
 				  ?>
 				 

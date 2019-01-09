@@ -2,10 +2,10 @@
 
 require_once("config.php");
 
-$username = $_POST["username"];
-$unhashed_password = $_POST["password"];
-$password_repeat = $_POST["password-repeat"];
-$email = $_POST["email"];
+$username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+$unhashed_password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+$password_repeat = filter_input(INPUT_POST, "password-repeat", FILTER_SANITIZE_SPECIAL_CHARS);
+$email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
 
 $authentication_msg = "authentication=";
 $authentication_error = false;

@@ -19,9 +19,7 @@
 		include "../php/config.php";
 		include "../php/script.php";
 		
-		if(!isset($_SESSION["mypage_page"])){
-			$_SESSION["mypage_page"] = 1;
-		}
+		resetPageNumber();
 		?>
 		
     </head>
