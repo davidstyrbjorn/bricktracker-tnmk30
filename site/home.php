@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +16,7 @@
 		
 		<?php
 		session_start();
+        include '../php/script.php';
 		?>
 		
     </head>
@@ -45,6 +49,7 @@
 							echo "<a class='nav-item' href='add.php'>ADD</a>";
 						}
 						else{
+                            
 							echo "<a class='nav-item' href='home.php'>BRICK_TRACKER</a>";
 							echo "<a class='nav-item-grayed' href='login.php'>MY PAGE</a>";
 							echo "<a class='nav-item-grayed' href='login.php'>ADD</a>";
@@ -56,6 +61,7 @@
                     <div class="nav-items-right">
 					
 						<?php
+                        
 						// Are we logged in?
 						$logged_in = false;
 						if(isset($_SESSION["logged_in"])){
@@ -66,9 +72,13 @@
 						
 						// Sign in our out button?
 						if(!$logged_in){
+                            echo "<p class='username'>";
+                            echo PUT SCRIPT HERE;
+                            echo "</p>";
 							echo "<a class='nav-item nav-item-right' href='login.php'>LOG IN</a>";
 						}
 						else{
+                            
 							echo "<form action='../php/logout.php'>";
 							echo "<input class='nav-item nav-item-right' type='submit' value='LOG OUT'>";
 							echo "</form>";
