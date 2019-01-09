@@ -264,7 +264,7 @@ footer{
     justify-content: space-between;
     flex-wrap:wrap;
     margin:auto;
-    width:100;
+    width:100%;
 }
 
 .footer-section ul .list-header{
@@ -281,7 +281,14 @@ footer{
 .footer-section ul{
     padding:0 20px;
     list-style-type: none;
-    width:500px;
+    width:350px;
+    color: darkgray;
+}
+
+.footer-link{
+    color: gray;
+    text-decoration: underline;
+    
 }
 
 
