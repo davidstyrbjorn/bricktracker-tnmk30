@@ -46,8 +46,8 @@
 						}
 						else{
 							echo "<a class='nav-item' href='home.php'>BRICK_TRACKER</a>";
-							echo "<a class='nav-item-grayed' href='#'>MY PAGE</a>";
-							echo "<a class='nav-item-grayed' href='#'>ADD</a>";
+							echo "<a class='nav-item-grayed' href='login.php'>MY PAGE</a>";
+							echo "<a class='nav-item-grayed' href='login.php'>ADD</a>";
 						}
 						
 						?>

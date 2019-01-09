@@ -59,8 +59,7 @@ nav .nav-items{
 
 .nav-item-grayed{
 	padding: 15px 20px;
-	text-decoration: line-through;
-	color:white;
+	color:gray;
 }
 
 .nav-item:hover{
