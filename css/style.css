@@ -79,8 +79,18 @@ nav .nav-items{
 .nav-item-right:hover{
     background:#b30000;
     border-radius: 1px;
-    
 }
+
+nav-p{
+    font-family: 'Quicksand', sans-serif;
+     color:white;
+}
+
+.username{
+    
+    color:#E2BF57;
+}
+
 
 /*CSS EFFECTS*/
 #hover-header:hover{

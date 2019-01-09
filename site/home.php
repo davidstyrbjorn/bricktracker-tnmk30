@@ -76,9 +76,9 @@
 							echo "<a class='nav-item nav-item-right' href='login.php'>LOG IN</a>";
 						}
 						else{
-                            echo "<p class='username'>";
-                            echo getUserName($_SESSION['id']);
-                            echo "</p>";
+                            echo "<p class='nav-p'>Logged in as <span class='username'>";
+                            echo getUserName($_SESSION['user_id']);
+                            echo "</span><p>";
 							echo "<a class='nav-item nav-item-right' href='../php/logout.php'>LOG OUT</a>";
 
 						}
