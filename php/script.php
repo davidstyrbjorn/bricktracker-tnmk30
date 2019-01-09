@@ -106,7 +106,7 @@ function displayOwnedSets()
 			echo "<td>" . $row['Setname'] . "</td>";
 			echo "<td>" . $row['Year'] . 	"</td>";
 			$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
-			echo "<td class='set-image'>" . "<img src='$url'>" . "</td>";
+			echo "<td class='set-image'>" . "<img src='$url' alt='". $row['Setname'] ."'>" . "</td>";
 			
 			echo "<td>"; 
 			echo "<form action='../php/removeset.php' method='post'>";
@@ -170,7 +170,7 @@ function searchForSetAndDisplay($search_string, $newSearch){
 		echo "<td>" . $row['Setname'] . "</td>";
 		echo "<td>" . $row['Year'] . 	"</td>";
 		$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
-		echo "<td class='set-image'>" . "<img src='$url'>" . "</td>";
+		echo "<td class='set-image'>" . "<img src='$url' alt='".$row['Setname']."'>" . "</td>";
 		echo "<td>"; 
 		echo "<form action='../php/addset.php' method='post'>";
 		echo "<input type='hidden' value='$SetID' name='SetID'>";
