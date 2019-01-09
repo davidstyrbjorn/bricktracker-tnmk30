@@ -80,7 +80,6 @@
                             echo getUserName($_SESSION['user_id']);
                             echo "</span><p>";
 							echo "<a class='nav-item nav-item-right' href='../php/logout.php'>LOG OUT</a>";
-
 						}
 						?>
 					

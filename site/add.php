@@ -39,7 +39,12 @@
                         <a class="nav-item" href="add.php">ADD</a>
                     </div>
                     <div class="nav-items-right">
-                        <a class="nav-item nav-item-right" href="">LOG IN</a>
+						<p class='nav-p'>Logged in as <span class='username'>
+						<?php
+						echo getUserName($_SESSION['user_id']);
+						?>
+						</span><p>
+                        <a class="nav-item nav-item-right" href="../php/logout.php">LOG OUT</a>
                     </div>
                 </div>
             </div>

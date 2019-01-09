@@ -23,17 +23,7 @@ function displayUserInfo()
 		
 		$user_id = $_SESSION["user_id"];
 		
-		// open DB
-        $host = $config["db"]["special_edit"]["host"];
-        $dbname = $config["db"]["special_edit"]["dbname"]; 
-        $db_username = $config["db"]["special_edit"]["username"]; 
-        $password =	$config["db"]["special_edit"]["password"];
-		$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
-	
-		$query = "SELECT * FROM users WHERE users.user_id = '$user_id'";
-		$result = mysqli_query($db, $query);
-		$row = mysqli_fetch_array($result);
-		$username = $row["username"];
+		$username = getUserName($user_id);
 	}
 	
 	$set_count = getUserSetCount();
@@ -132,20 +122,29 @@ function searchForSetAndDisplay($search_string, $newSearch){
 	$password =	$config["db"]["big_lego_database"]["password"];
 	$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!" . "<br/>HOST:$host");
 	
+	// Safe search
+	$_search_string = mysqli_escape_string($db, $search_string);
+	
 	// First a query for the total amount of rows in the search
 	if($newSearch){
-		$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname = '$search_string' OR s.Year = '$search_string') AND i.ItemID = s.SetID";
+		$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname LIKE '%". $_search_string ."%' OR s.Year = '$search_string') AND i.ItemID = s.SetID";
 		$result = mysqli_query($db, $query);
 		$_SESSION["search_count"] = $result->num_rows;
 	}
 
 	$page_number = $_SESSION["sets_page"];
 	$offset = ($page_number-1)*$items_per_page;
-
-	// Get sets form database
-	$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i WHERE (s.SetID = '$search_string' OR s.Setname = '$search_string' OR s.Year = '$search_string') AND i.ItemID = s.SetID LIMIT $offset,$items_per_page";
-	$result = mysqli_query($db, $query);
 	
+	// Get sets form database
+	$query = "SELECT s.SetID, s.Setname, s.Year, i.ItemTypeID, i.has_jpg, i.has_gif FROM sets s, images i 
+	WHERE (s.SetID = '$_search_string' OR s.Setname LIKE '%". $_search_string ."%' OR s.Year = '$_search_string') AND i.ItemID = s.SetID 
+	ORDER BY s.Setname LIKE CONCAT('$_search_string', '%') DESC, 
+	IFNULL(NULLIF(INSTR(s.Setname, CONCAT(' ', '$_search_string')), 0), 99999),
+	IFNULL(NULLIF(INSTR(s.Setname, '$_search_string'), 0), 99999),
+	s.Setname
+	LIMIT $offset,$items_per_page";                                            
+	$result = mysqli_query($db, $query);
+	echo mysqli_error($db);
 	$table_row_class = "dark-tr";
 	
 	while($row = mysqli_fetch_array($result)) {
@@ -293,16 +292,19 @@ function getNumberOfPages($total_item_count){
 }
 
 function getUserName($user_id){
+	
+	include "config.php";
+	
 	$host = $config["db"]["special_edit"]["host"];
     $dbname = $config["db"]["special_edit"]["dbname"]; 
     $db_username = $config["db"]["special_edit"]["username"]; 
     $password =	$config["db"]["special_edit"]["password"];
     $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
 
-	$query = "SELECT * FROM users WHERE users.user_id = '$user_id' LIMIT 1";
+	$query = "SELECT * FROM users WHERE users.user_id = '$user_id'";
 	$result = mysqli_query($db, $query);
-	
-	$username = mysqli_fetch_array($result)["username"];
+	$row = mysqli_fetch_array($result);
+	$username = $row["username"];
 	
 	return $username;
 }

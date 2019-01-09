@@ -19,8 +19,8 @@
                 <div class="nav-items">
                     <div class="nav-items-left">
                         <a class="nav-item" href="home.php">BRICK_TRACKER</a>
-                        <a class="nav-item" href="home.php">MY PAGE</a>
-                        <a class="nav-item" href="home.php">ADD</a>
+                        <a class="nav-item-grayed" href="#">MY PAGE</a>
+                        <a class="nav-item-grayed" href="#">ADD</a>
                     </div>
                     <div class="nav-items-right">
                         <a class="nav-item nav-item-right" href="">LOG IN</a>

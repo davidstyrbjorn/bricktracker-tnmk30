@@ -46,4 +46,13 @@ else {
 // Redirect back with the fail string in the url
 header("location:../site/login.php?$fail_string");
 
-?>
+/*
+select id, name
+from subjects
+where name like concat('%', @search, '%')?>
+order by 
+	name like concat(@search, '%') desc,
+	ifnull(nullif(instr(name, concat(' ', @search)), 0), 99999),
+	ifnull(nullif(instr(name, @search), 0), 99999),
+	name;
+*/
