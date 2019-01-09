@@ -1,3 +1,4 @@
 ﻿Kom ihåg:
 
 - Om inga sets hittas på mypage byt till en knapp som leder till add
+- filter_input() på posts och gets;
