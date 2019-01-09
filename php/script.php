@@ -291,4 +291,20 @@ function getNumberOfPages($total_item_count){
 	
 	return $page_number;
 }
+
+function getUserName($user_id){
+	$host = $config["db"]["special_edit"]["host"];
+    $dbname = $config["db"]["special_edit"]["dbname"]; 
+    $db_username = $config["db"]["special_edit"]["username"]; 
+    $password =	$config["db"]["special_edit"]["password"];
+    $db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!");
+
+	$query = "SELECT * FROM users WHERE users.user_id = '$user_id' LIMIT 1";
+	$result = mysqli_query($db, $query);
+	
+	$username = mysqli_fetch_array($result)["username"];
+	
+	return $username;
+}
+
 ?>
