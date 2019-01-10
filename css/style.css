@@ -8,6 +8,12 @@ body{
     margin:auto;
 }
 
+.wrapper-terms{
+    padding-top: 50px;
+    width:1200px;
+    margin:auto;
+}
+
 /*TEXT & FONTS*/
 h1, h2, h3{
     font-family: 'Quicksand', sans-serif;
@@ -213,6 +219,7 @@ header{
     box-shadow: 0 15px 200px 0 rgba(0,0,0,0.31),
                 0 5px 15px 0 rgba(0,0,0,0.08);
 }
+
 .section{
     margin:10px;
     display:flex;
