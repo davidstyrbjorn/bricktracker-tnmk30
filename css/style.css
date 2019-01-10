@@ -181,7 +181,7 @@ header{
     
 }
 
-.header-window-mypage ul{
+.header-window-mypage ul, .header-window-text ul{
    font-family: 'Montserrat', sans-serif;
    list-style-type: none;
     text-align: middle;
@@ -204,6 +204,20 @@ header{
 .register-btn:hover, .submit-btn:hover{
     background:#015B95;
     
+}
+
+.h-window-flex{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.header-window-text{
+    padding:0 20px; 
+}
+
+.set-img{
+    padding:0 20px;
 }
 
 
@@ -261,8 +275,10 @@ article h2{
 /*FOOTER*/
 
 footer{
+    position:absolute;
     background:#2a2a2a; 
     width:100%;
+    bottom:0;
 }
 
 .footer-sections{
@@ -524,7 +540,29 @@ td{
 }
 
 @media only screen and (max-width: 600px) {
+    
+    
+    nav .nav-items{
+        font-size:15px;
+    }
 
+    .nav-item, .nav-item-grayed{
+	padding: 8px 10px;
+	
+    }
+    
+    .nav-item-right{
+    margin:2px;
+    padding: 6px 8px;
+    
+    }
+    
+    .nav-p{
+        display:hidden;
+    }
+
+    
+    
    
     .section{
         flex-wrap:wrap;

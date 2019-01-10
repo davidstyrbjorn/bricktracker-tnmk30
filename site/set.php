@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-		<title>BrickTracker - Mypage</title>
+		<title>BrickTracker - Set</title>
 		<meta name="description" content="Keep track of your collection online!">
   		<meta name="keywords" content="Bricks Lego collection track tracking ">
   		<meta name="author" content="Emil Bertholdsson, David Styrbjörn, Linus Karlsson, Max Benecke">
@@ -10,6 +10,18 @@
   		<link  href="../css/style.css" rel="stylesheet"/>
   		<script src=""></script>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!--
+		PHP Include
+		-->
+		<?php
+		session_start();
+		include "../php/config.php";
+		include "../php/script.php";
+		
+		resetPageNumber();
+		?>
+		
     </head>
     
     <body>
@@ -18,12 +30,18 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
-                        <a class="nav-item" href="">BRICK_TRACKER</a>
-                        <a class="nav-item" href="">SETS</a>
-                        <a class="nav-item" href="">ADD</a>
+                        <a class="nav-item" href="home.php">BRICK_TRACKER</a>
+                        <a class="nav-item" href="mypage.php">MY PAGE</a>
+                        <a class="nav-item" href="add.php">ADD</a>
                     </div>
                     <div class="nav-items-right">
-                        <a class="nav-item nav-item-right" href="">LOG IN</a>
+					
+						<p class='nav-p'>Logged in as <span class='username'>
+						<?php
+						echo getUserName($_SESSION['user_id']);
+						?>
+						</span><p>
+                        <a class="nav-item nav-item-right" href="../php/logout.php">LOG OUT</a>
                     </div>
                 </div>
             </div>
@@ -42,8 +60,6 @@
                         <li>ID:</li>
                         <li>Year: </li>
                         <li></li>
-                        <li></li>
-                        <li></li>
                     </ul>
                     </div>
                 </div>
@@ -56,44 +72,20 @@
                   <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>YEAR</th>
+                      <th>QUANTITY</th>
                     <th>IMAGE</th>
-                   
-                      
-                    
+					
                   </tr>
-                  <tr class="dark-tr">
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td><img src="" alt="set-image" class="set-image"></td>
-                    
-                    
-                  </tr>
-                  <tr class="light-tr">
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
-                    <td><img src="" alt="set-image" class="set-image"></td>
-                   
-                  </tr>
+
+				  
+				  
                 </table>
-            <table class="pagination">
-                <tr>
-                    <td><a href=""><<</a></td>
-                    <td><a href=""><</a></td>
-                    <td class="active-pagination"><a href="">1</a></td>
-                    <td><a href="">2</a></td>
-                    <td><a href="">3</a></td>
-                    <td><a href="">></a></td>
-                    <td><a href="">>></a></td>
-                </tr>
-            </table>
+
         
         
         </div>
         
-        <footer>
+         <footer>
             
             <div class="wrapper">
                 <div class="footer-sections">
@@ -120,8 +112,5 @@
             </div>
             
         </footer>
-        
-        
-        
     </body>
 </html>
