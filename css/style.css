@@ -175,7 +175,7 @@ header{
     
 }
 
-.header-window-mypage ul{
+.header-window-mypage ul, .header-window-text ul{
    font-family: 'Montserrat', sans-serif;
    list-style-type: none;
     text-align: middle;
