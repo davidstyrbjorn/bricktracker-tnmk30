@@ -19,6 +19,7 @@
         include '../php/script.php';
 		
 		resetPageNumber();
+		resetMyPage();
 		?>
 		
     </head>

@@ -53,6 +53,12 @@
                 <br>
                 <br>
                 <div class="h-window-flex">
+				<?php
+				if(isset($_GET["set_id"])){
+					displaySetInfo($_GET["set_id"]);
+				}
+				?>
+				<!--
                 <img class="set-img" src="https://dummyimage.com/460x300/fff/aaa" alt="setimage">
                     <div class="header-window-text">
                     <h1>Setname</h1>
@@ -62,23 +68,26 @@
                         <li></li>
                     </ul>
                     </div>
-                </div>
-             
+				-->
+				</div>
             </div>
         </header>
         <div class="wrapper">
             
                 <table class="lego-table">
-                  <tr>
-                    <th>ID</th>
-                    <th>NAME</th>
-                      <th>QUANTITY</th>
-                    <th>IMAGE</th>
+					<tr>
+						<th>ID</th>
+						<th>NAME</th>
+						<th>QUANTITY</th>
+						<th>IMAGE</th>
+					</tr>
 					
-                  </tr>
+					<?php
+					if(isset($_GET["set_id"])){
+						displaySetPieces($_GET["set_id"]); 
+					}
+					?>
 
-				  
-				  
                 </table>
 
         
