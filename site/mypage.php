@@ -18,12 +18,13 @@
 		session_start();
 		include "../php/config.php";
 		include "../php/script.php";
-        
+
         // If we're not logged in, redirect to login.php
         if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) {
             header("location:login.php");
         }
 
+        resetMyPage();
         resetPageNumber();
 		?>
 		
@@ -92,6 +93,6 @@
         <?php
         displayFooter();
         ?>
-        
+
     </body>
 </html>
