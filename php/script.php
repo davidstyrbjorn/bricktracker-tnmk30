@@ -96,7 +96,7 @@ function displayOwnedSets()
 			echo "<td><a href='../site/set.php?set_id=$SetID'>" . $row['Setname'] . "</a></td>";
 			echo "<td>" . $row['Year'] . 	"</td>";
 			$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
-			echo "<td class='set-image'>" . "<img src='$url' alt='". $row['Setname'] ."'>" . "</td>";
+			echo "<td class='set-image'>" . "<a href='../site/set.php?set_id=$SetID'><img src='$url' alt='". $row['Setname'] ."'>" . "</a></td>";
 			
 			echo "<td>"; 
 			echo "<form action='../php/removeset.php' method='post'>";
@@ -146,8 +146,8 @@ function searchForSetAndDisplay($search_string, $newSearch){
 	s.Setname, s.Year DESC
 	LIMIT $offset,$items_per_page";                                            
 	$result = mysqli_query($db, $query);
-	echo mysqli_error($db);
-	$table_row_class = "dark-tr";
+
+	$table_row_class = "dark-tr";	
 	
 	while($row = mysqli_fetch_array($result)) {
 		// Toggle row class!		
@@ -156,14 +156,13 @@ function searchForSetAndDisplay($search_string, $newSearch){
 		else
 			$table_row_class = "dark-tr";
 		
-		$SetID = $row["SetID"]; // We use this more than once
-		
+			$SetID = $row["SetID"]; // We use this more than once
 		// Check if the user has set
 		$hasSet = userHasSet($SetID);
 		if($hasSet == true){
 			$table_row_class .= " has"; 
 		}
-
+			
 		// Display the row
 		echo "<tr class='$table_row_class'>";
 		echo "<td>" . $SetID . 	"</td>";
@@ -180,6 +179,9 @@ function searchForSetAndDisplay($search_string, $newSearch){
 		echo "</td>";
 		
 		echo "</tr>";
+		
+		if($hasSet)
+			$table_row_class = substr($table_row_class, 0, strlen($table_row_class)-4);
 	}	
 }
 
@@ -241,7 +243,6 @@ function displaySetPieces($set_id)
 		$_SESSION["bricks_page"] = 1;
 	}
 	if(!isset($_SESSION["bricks_count"])){
-		
 		$query = "SELECT * FROM inventory,parts,images,colors WHERE 
 		inventory.SetID = '$set_id' AND
 		inventory.ItemtypeID = 'P' AND
@@ -253,7 +254,7 @@ function displaySetPieces($set_id)
 		$result = mysqli_query($db, $query);
 		
 		$_SESSION["bricks_count"] = $result->num_rows;
-	}
+	}	
 	
 	$page_number = $_SESSION["bricks_page"];
 	$offset = ($page_number-1)*$items_per_page;	

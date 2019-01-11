@@ -24,7 +24,6 @@
             header("location:login.php");
         }
 
-        resetMyPage();
         resetPageNumber();
 		?>
 		
