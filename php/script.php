@@ -13,7 +13,7 @@ function displayUserInfo()
 	include "config.php";
 	
 	$username = "";
-	$description = "Welcome to your personal collection! Here you can se your collection of sets and bricks! if your list is empty go to the add page to add sets that you own!";
+	$description = "Welcome to your personal collection! Here you can see a collection of sets and bricks that you own. If your list is empty, you can go to the add page to add sets that you own.";
 		
 	// Get user name
 	if(!isset($_SESSION["logged_in"])){
