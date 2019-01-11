@@ -1,11 +1,19 @@
 body{
     margin:0;
     background: #2C7AAD;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .wrapper{
     width:1200px;
     margin:auto;
+     
+}
+
+.wrapper, .outer-login, .register-window{
+    flex:1;
 }
 
 .wrapper-terms{
@@ -274,7 +282,6 @@ article h2{
 
 footer{
     background:#2a2a2a; 
-    width:100%;
 }
 
 .footer-sections{
@@ -284,6 +291,7 @@ footer{
     flex-wrap:wrap;
     margin:auto;
     width:100%;
+    
 }
 
 .footer-section ul .list-header{
@@ -321,6 +329,9 @@ input{
     
 }
 
+ 
+
+
 .submit-btn{
     margin:auto;
     position:static;
@@ -333,19 +344,35 @@ input{
     padding: 10px 0;
 }
 
-.large-header{
-    height:800px;
+.register-window{
     background: url("https://i.imgur.com/giNrHUP.jpg");
     background-size: cover;
 }
 
-.outer-login{
-    background: url("https://i.imgur.com/fmXWkcZ.jpg");
-    background-size: cover;
+.register-window h2{
+    background:#2A2A2A;
+    border-radius: 2px 2px 0 0;
+    text-align:center;
+    padding:10px;
+    color: white;
 }
 
+.register-window div{
+    width:600px;
+    margin:auto;
+    
+} 
+
+.register-window div form{
+    padding:10px 0;
+    text-align: center;
+    background:#F5F5F5;
+    border-radius:0 0 2px 2px;
+}
+
+
 .header-window-mypage{
-    background: url("https://i.imgur.com/QjzKh3X.jpg");
+    background: url("https://i.imgur.com/nsACEkX.jpg");
     background-size: cover;
 }
 
@@ -479,6 +506,8 @@ td{
 
 .outer-login{
     padding:200px 0 400px;
+    background: url("https://i.imgur.com/fmXWkcZ.jpg");
+    background-size: cover;
 }
 
 .label{
@@ -510,10 +539,24 @@ td{
 
     .wrapper{
         width:100%;
+       
+    }
+    
+    .footer-section{
+        width:900px;
+        padding:0 20px;
+        margin:auto;
+    }
+    
+    .footer-section ul{
+        width:100%;
+        
+        
     }
     
     
 }
+
 
 @media only screen and (max-width: 900px) {
 
@@ -528,9 +571,37 @@ td{
     .header-window #header-window-text{
         font-size:30px;
     }
+    
     .header-window h5{
         font-size:16px;
         width:80%;
+    }
+    
+
+    .footer-section{
+        width:100%;
+        padding:0 20px;
+    }
+    
+    .footer-section ul{
+        width:100%;
+        padding:0;
+    }
+    .lego-table-container{
+        overflow-x: scroll;
+    }
+    
+    .lego-table{
+        width: 900px;
+    }
+    
+    .search input{
+        width: 88%
+    }
+    
+    .search button{
+        width: 12%
+
     }
     
 }
@@ -566,6 +637,14 @@ td{
     
     .section img{
         margin:auto;
+    }
+    
+    .search input{
+        width: 74%
+    }
+    
+    .search button{
+        width: 26%
     }
     
     
