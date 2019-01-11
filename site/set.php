@@ -77,7 +77,7 @@
             </div>
         </header>
         <div class="wrapper">
-            
+            <div class="lego-table-container">
                 <table class="lego-table">
 					<tr>
 						<th>ID</th>
@@ -91,7 +91,7 @@
 					?>
 
                 </table>
-
+            </div>
         
         
         </div>
