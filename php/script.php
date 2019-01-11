@@ -166,13 +166,13 @@ function searchForSetAndDisplay($search_string, $newSearch){
 
 		// Display the row
 		echo "<tr class='$table_row_class'>";
-		
 		echo "<td>" . $SetID . 	"</td>";
-		echo "<td>" . $row['Setname'] . "</td>";
+		echo "<td><a href='../site/set.php?set_id=$SetID'>" . $row['Setname'] . "</a></td>";
 		echo "<td>" . $row['Year'] . 	"</td>";
 		$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
 		echo "<td class='set-image'>" . "<img src='$url' alt='".$row['Setname']."'>" . "</td>";
 		echo "<td>"; 
+		
 		echo "<form action='../php/addset.php' method='post'>";
 		echo "<input type='hidden' value='$SetID' name='SetID'>";
 		echo "<button type='submit' class='add-button'>+</button>";
@@ -181,6 +181,86 @@ function searchForSetAndDisplay($search_string, $newSearch){
 		
 		echo "</tr>";
 	}	
+}
+
+// Used at set.php
+function displaySetInfo($set_id)
+{
+	include "config.php";
+	// Open DB
+	$host = $config["db"]["big_lego_database"]["host"];
+	$dbname = $config["db"]["big_lego_database"]["dbname"]; 
+	$db_username = $config["db"]["big_lego_database"]["username"]; 
+	$password =	$config["db"]["big_lego_database"]["password"];
+	$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!" . "<br/>HOST:$host");
+	
+	$query = "SELECT * FROM sets, images, categories WHERE sets.SetID = '$set_id' AND images.ItemID = '$set_id' AND sets.CatID = categories.CatID LIMIT 1";
+	$result = mysqli_query($db, $query);
+	$row = mysqli_fetch_array($result);
+	
+	// Get image url & maybe display if there is an image 
+	$image_suffix = "none";
+	if($row["has_largejpg"]) {
+		$image_suffix = ".jpg";
+	}
+	else if($row["has_largegif"]) {
+		$image_suffix = ".gif";
+	}
+	// Was there an image?
+	if($image_suffix != "none") {
+		$url = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . $row["ItemTypeID"] . "L/" . $row["ItemID"] . $image_suffix;
+		echo "<img class='set-img' src='$url'>";
+	}
+	
+	echo "<div class='header-window-text'>";
+	echo "<h2>" . $row["Setname"] . "</h2>";
+	
+	echo "<ul>";
+	
+	echo "<li>ID: " . $set_id . "</li>";
+	echo "<li>Year: " . $row["Year"] . "</li>";
+	echo "<li>Category: " . $row["Categoryname"] . "</li>";
+	
+	echo "</ul>";
+
+}
+
+// Used at set.php
+function displaySetPieces($set_id) 
+{
+	include "config.php";
+	// Open DB
+	$host = $config["db"]["big_lego_database"]["host"];
+	$dbname = $config["db"]["big_lego_database"]["dbname"]; 
+	$db_username = $config["db"]["big_lego_database"]["username"]; 
+	$password =	$config["db"]["big_lego_database"]["password"];
+	$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!" . "<br/>HOST:$host");
+	
+	$query = "SELECT * FROM sets,inventory,parts WHERE sets.SetID = '$set_id' AND 
+	sets.SetID = inventory.SetID AND inventory.ItemID = parts.PartID";
+	$result = mysqli_query($db, $query);
+	
+	$table_row_class = "dark-tr";
+	
+	while($row = mysqli_fetch_array($result)){
+		// Toggle row class!		
+		if($table_row_class == "dark-tr")
+			$table_row_class = "light-tr";
+		else
+			$table_row_class = "dark-tr";
+		
+		echo "<tr class = '$table_row_class'>";
+		
+		// SetID
+		echo "<td>" . $set_id . "</td>";
+		// Name
+		echo "<td>" . $row["Partname"] . "</td>";
+		// Quantity
+		// Image
+		
+		echo "</tr>";
+	}
+	
 }
 
 /* UGLY PAGINATION FUNCTIONS */
@@ -204,16 +284,12 @@ function displayPaginationAddSets()
 
 function resetPageNumber()
 {
-	if(isset($_SESSION["sets_page"])){
-		$_SESSION["sets_page"] = 1;
-	}
+	$_SESSION["sets_page"] = 1;
 }
 
 function resetMyPage()
 {
-	if(isset($_SESSION["mypage_page"])){
-		$_SESSION["mypage_page"] = 1;
-	}
+	$_SESSION["mypage_page"] = 1;
 }
 
 function displayPaginationMypage()
