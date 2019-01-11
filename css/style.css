@@ -386,7 +386,7 @@ td {
 .light-tr {
 	background: #d9e6f2;
 }
-.has td{
+.has{
 	border-right:solid 10px #29A645;
 }
 .light-tr:hover,
