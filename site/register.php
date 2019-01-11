@@ -28,14 +28,20 @@
                 </div>
             </div>
         </nav>
-        <header>
-            <div class="header-window large-header">
-                
+        
+            <div class="register-window">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div>
+                <h2>Register</h2>
                 <form action="../php/register_validate.php" method="post">
                   
                     
                     
-                    <h1>Register</h1>
+                    
                     <p>Please fill in this form to create an account.</p>
                     
                     <?php
@@ -75,14 +81,7 @@
 
                         } 
                     }
-                    
-                    
-                    
-                    
-                        
-                        
-    
-                    
+   
                     ?>
                             <div class="form-column">
                                 <input type="text" placeholder="Username" name="username" required>
@@ -104,8 +103,7 @@
                 </form>
                 
             </div>
-        </header>
-        
+      </div>
         
         <footer>
             
