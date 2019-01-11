@@ -495,7 +495,12 @@ td {
 	}
 }
 @media only screen and (max-width: 900px) {
-	.section img {
+	
+    .nav-p{
+        display:none;
+    }
+    
+    .section img {
 		height: 200px;
 	}
 	
