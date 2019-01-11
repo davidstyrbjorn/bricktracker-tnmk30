@@ -8,7 +8,7 @@
   		<meta name="author" content="Emil Bertholdsson, David Styrbjörn, Linus Karlsson, Max Benecke">
         <link href="https://fonts.googleapis.com/css?family=Quicksand|Varela+Round|Roboto|Montserrat" rel="stylesheet">
   		<link  href="../css/style.css" rel="stylesheet"/>
-  		<script src=""></script>
+  		<script src="../Js/Common.js"></script>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<?php
@@ -114,6 +114,8 @@
 			
         </div>
         
+        <button classs="up-button" onclick="topFunction()">^</button>
+
         <!-- Echoes HTML code -->
         <?php
         displayFooter();
