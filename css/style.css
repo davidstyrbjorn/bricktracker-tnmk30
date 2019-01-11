@@ -382,14 +382,14 @@ td {
 }
 .dark-tr {
 	background: LightSteelBlue;
-   
-    transition:0.5;
+    -webkit-transition: background 1s;
+    transition: background 1s;
     
 }
 .light-tr {
 	background: #d9e6f2;
-    
-    transition:0.3;
+    -webkit-transition: background 1s;
+    transition: background 1s;
 }
 .has{
 	border-left:solid 10px #29A645;
