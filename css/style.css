@@ -548,7 +548,7 @@ td {
 }
 @media only screen and (max-width: 600px) {
 	nav .nav-items {
-		font-size: 15px;
+		font-size: 12px;
 	}
 	
 	.nav-item,
