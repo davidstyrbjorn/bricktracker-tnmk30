@@ -1,8 +1,9 @@
 ﻿Kom ihåg:
 
 - Om inga sets hittas på mypage byt till en knapp som leder till add
-- Register error
+- Register error!!!!!!!!
 - fixa session reset för sidor på tables
+
 
 Saknar resposivitet
 - TABELL PILAR
