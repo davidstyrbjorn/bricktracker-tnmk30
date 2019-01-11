@@ -10,6 +10,12 @@ $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
 $authentication_msg = "authentication=";
 $authentication_error = false;
 
+// Make sure username doesnt overflow VARCHAR size in table
+if(strlen($username) > $username_max_length){
+	header("location:../site/register.php?authentication=_username_");
+	exit();
+}
+
 // Simple username & passowrd authentication!
 if(strlen($unhashed_password) < $password_min_length){
 	$authentication_msg .= '_password_';

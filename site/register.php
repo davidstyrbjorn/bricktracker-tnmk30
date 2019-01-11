@@ -50,7 +50,7 @@
                     <p>Please fill in this form to create an account.</p>
                     
                     <?php
-                    
+
                     if(isset($_GET['authentication'])){
                         $auth = $_GET['authentication'];
                         $combo = 0;
@@ -58,7 +58,7 @@
                             $error = "Your ";
 
                             if (strpos($auth, 'username') !== false) {
-                                $error .= "username was invalid";
+                                $error .= "username invalid, try another ";
                                 $combo++;
                             }
                             if(strpos($auth, 'password') !== false){

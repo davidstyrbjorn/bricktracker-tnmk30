@@ -34,6 +34,7 @@ error_reporting(E_ALL);
 ini_set("display_errors",1);
 
 // Hashing & password related
+$username_max_length = 50;
 $password_min_length = 6;
 $username_min_length = 3;
 $hash = "md5";
