@@ -3,9 +3,11 @@
 session_start();
 
 include "script.php";
+include "config.php";
 
 $go_back_to_search = false;
 $go_back_to_mypage = false;
+$go_back_to_set = false;
 
 if(isset($_POST["pagination_left_sets"])){
 	// Decrease current page
@@ -39,13 +41,30 @@ else if(isset($_POST["pagination_right_mypage"])){
 	}
 	$go_back_to_mypage = true;
 }
+else if(isset($_POST["pagination_right_bricks"])){
+	$max_page_number = getNumberOfPages($_SESSION["bricks_count"]);
+	if($_SESSION["bricks_page"] < $max_page_number){
+		$_SESSION["bricks_page"]++;
+	}
+	$go_back_to_set = true;
+}
+else if(isset($_POST["pagination_left_bricks"])) {
+	if($_SESSION["bricks_page"] > 1) {
+		$_SESSION["bricks_page"]--;
+	}
+	$go_back_to_set = true;
+}
 
-if($go_back_to_search){
+if($go_back_to_search) {
 	$last_search = $_SESSION['last_search'];
 	header("location:../site/add.php? search_string=" . $last_search);
 }
-else{
+elseif($go_back_to_mypage) {
 	header("location:../site/mypage.php");
+}
+elseif($go_back_to_set) {
+	$SetID = $_GET["set_id"];
+	header("location:../site/set.php?set_id=$SetID");
 }
 
 ?>

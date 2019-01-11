@@ -17,8 +17,25 @@
 		<?php
 		session_start();
 		include "../php/config.php";
-		include "../php/script.php";
-		
+        include "../php/script.php";
+        
+        // If we're not logged in, redirect to login.php
+        if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) {
+            header("location:login.php");
+        }
+
+        // Reset bricks page?
+        if(isset($_SESSION["last_set_id"])){
+            if($_SESSION["last_set_id"] != $_GET["set_id"]){
+                resetBricksPage();
+            }
+        }
+
+        if(isset($_GET["set_id"])){
+            $_SESSION["last_set_id"] = $_GET["set_id"];
+        }
+        
+        resetMyPage();
 		resetPageNumber();
 		?>
 		
@@ -53,22 +70,9 @@
                 <br>
                 <br>
                 <div class="h-window-flex">
-				<?php
-				if(isset($_GET["set_id"])){
-					displaySetInfo($_GET["set_id"]);
-				}
-				?>
-				<!--
-                <img class="set-img" src="https://dummyimage.com/460x300/fff/aaa" alt="setimage">
-                    <div class="header-window-text">
-                    <h1>Setname</h1>
-                    <ul>
-                        <li>ID:</li>
-                        <li>Year: </li>
-                        <li></li>
-                    </ul>
-                    </div>
-				-->
+				    <?php
+				    displaySetInfo($_GET["set_id"]);
+				    ?>
 				</div>
             </div>
         </header>
@@ -83,9 +87,7 @@
 					</tr>
 					
 					<?php
-					if(isset($_GET["set_id"])){
-						displaySetPieces($_GET["set_id"]); 
-					}
+					displaySetPieces($_GET["set_id"]); 
 					?>
 
                 </table>
@@ -93,7 +95,13 @@
         
         
         </div>
-        
+		
+		<?php
+		displayPagenationBricks($_GET["set_id"]);
+        ?>
+		
+		<a href="bottomOfPage"></a>
+		
          <footer>
             
             <div class="wrapper">

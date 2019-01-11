@@ -93,7 +93,7 @@ function displayOwnedSets()
 			// Display the row
 			echo "<tr class='$table_row_class'>";
 			echo "<td>" . $SetID . 	"</td>";
-			echo "<td>" . $row['Setname'] . "</td>";
+			echo "<td><a href='../site/set.php?set_id=$SetID'>" . $row['Setname'] . "</a></td>";
 			echo "<td>" . $row['Year'] . 	"</td>";
 			$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
 			echo "<td class='set-image'>" . "<img src='$url' alt='". $row['Setname'] ."'>" . "</td>";
@@ -236,10 +236,39 @@ function displaySetPieces($set_id)
 	$password =	$config["db"]["big_lego_database"]["password"];
 	$db = mysqli_connect($host, $db_username, $password, $dbname) or die("Failed to estabish database connection!" . "<br/>HOST:$host");
 	
-	$query = "SELECT * FROM sets,inventory,parts WHERE sets.SetID = '$set_id' AND 
-	sets.SetID = inventory.SetID AND inventory.ItemID = parts.PartID";
-	$result = mysqli_query($db, $query);
+	// Page set?	
+	if(!isset($_SESSION["bricks_page"])){
+		$_SESSION["bricks_page"] = 1;
+	}
+	if(!isset($_SESSION["bricks_count"])){
+		
+		$query = "SELECT * FROM inventory,parts,images,colors WHERE 
+		inventory.SetID = '$set_id' AND
+		inventory.ItemtypeID = 'P' AND
+		colors.ColorID = inventory.ColorID AND
+		parts.PartID = inventory.ItemID AND
+		images.ItemID = inventory.ItemID AND
+		images.ColorID = inventory.ColorID";
+		
+		$result = mysqli_query($db, $query);
+		
+		$_SESSION["bricks_count"] = $result->num_rows;
+	}
 	
+	$page_number = $_SESSION["bricks_page"];
+	$offset = ($page_number-1)*$items_per_page;	
+
+	$query = "SELECT * FROM inventory,parts,images,colors WHERE 
+	inventory.SetID = '$set_id' AND
+	inventory.ItemtypeID = 'P' AND
+	colors.ColorID = inventory.ColorID AND
+	parts.PartID = inventory.ItemID AND
+	images.ItemID = inventory.ItemID AND
+	images.ColorID = inventory.ColorID 
+	LIMIT $offset,$items_per_page";
+	
+	$result = mysqli_query($db, $query);
+
 	$table_row_class = "dark-tr";
 	
 	while($row = mysqli_fetch_array($result)){
@@ -248,7 +277,7 @@ function displaySetPieces($set_id)
 			$table_row_class = "light-tr";
 		else
 			$table_row_class = "dark-tr";
-		
+
 		echo "<tr class = '$table_row_class'>";
 		
 		// SetID
@@ -256,7 +285,17 @@ function displaySetPieces($set_id)
 		// Name
 		echo "<td>" . $row["Partname"] . "</td>";
 		// Quantity
+		echo "<td>" . $row["Quantity"] . "</td>";
 		// Image
+		$image_suffix = "none";
+		if($row["has_gif"]) {
+			$image_suffix = ".gif";
+		}
+		elseif($row["has_jpg"]) {
+			$image_suffix = ".jpg";
+		}
+		$url = "http://www.itn.liu.se/~stegu76/img.bricklink.com/P/" . $row["ColorID"] . "/" . $row["ItemID"];
+		echo "<td>" . "<img src='$url'>" . "</td>";
 		
 		echo "</tr>";
 	}
@@ -264,7 +303,6 @@ function displaySetPieces($set_id)
 }
 
 /* UGLY PAGINATION FUNCTIONS */
-
 function displayPaginationAddSets()
 {
 	// Page related
@@ -292,6 +330,12 @@ function resetMyPage()
 	$_SESSION["mypage_page"] = 1;
 }
 
+function resetBricksPage()
+{
+	unset($_SESSION["bricks_count"]);
+	$_SESSION["bricks_page"] = 1;
+}
+
 function displayPaginationMypage()
 {
 	// Page related
@@ -306,6 +350,24 @@ function displayPaginationMypage()
 	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_mypage' value='>'/> </td> ";
 	echo "</tr> ";
 	echo "</table> ";
+	echo "</form>";
+}
+
+function displayPagenationBricks($set_id)
+{
+	$page_number = $_SESSION["bricks_page"];
+	$max_page_number = getNumberOfPages($_SESSION["bricks_count"]);
+	
+	echo "<form action='../php/pagination_page_switch.php?set_id=$set_id' method='POST'>";
+	echo "<table class='pagination'>";
+	
+	echo "<tr>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_bricks' value='<'/> </td> ";
+	echo "<td>$page_number / " . $max_page_number . "</td>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_bricks' value='>'/> </td> ";
+	echo "</tr>";
+	
+	echo "</table>";
 	echo "</form>";
 }
 

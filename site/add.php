@@ -17,13 +17,18 @@
 		
 		// Include all needed php files
 		include "../php/config.php";
-		include "../php/script.php";
+        include "../php/script.php";
+        
+        // If we're not logged in, redirect to login.php
+        if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) {
+            header("location:login.php");
+        }
 		
 		// Lets do this so the mypage page is back to 1 when the player goes back
 		$_SESSION["mypage_page"] = 1;
 		if(!isset($_SESSION["sets_page"])){
 			$_SESSION["sets_page"] = 1;
-		}
+        }
 		?>
 		
     </head>
