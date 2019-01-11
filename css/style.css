@@ -382,9 +382,14 @@ td {
 }
 .dark-tr {
 	background: LightSteelBlue;
+   
+    transition:0.5;
+    
 }
 .light-tr {
 	background: #d9e6f2;
+    
+    transition:0.3;
 }
 .has{
 	border-left:solid 10px #29A645;
@@ -394,9 +399,11 @@ td {
 	background: whitesmoke;
 }
 
-.has:hover {
-	background: #44ba5e;
-}
+
+
+
+
+
 .pagination {
 	margin: 20px auto 20px auto;
 	font-family: 'Varela Round', sans-serif;
