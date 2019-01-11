@@ -397,7 +397,7 @@ td {
 .light-tr:hover,
 .dark-tr:hover {
 	background: whitesmoke;
-    left:-10px;
+    right:10px;
 }
 
 
