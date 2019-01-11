@@ -528,9 +528,26 @@ td{
     .header-window #header-window-text{
         font-size:30px;
     }
+    
     .header-window h5{
         font-size:16px;
         width:80%;
+    }
+    
+    .lego-table-container{
+        overflow-x: scroll;
+    }
+    
+    .lego-table{
+        width: 900px;
+    }
+    
+    .search input{
+        width: 88%
+    }
+    
+    .search button{
+        width: 12%
     }
     
 }
@@ -566,6 +583,14 @@ td{
     
     .section img{
         margin:auto;
+    }
+    
+    .search input{
+        width: 74%
+    }
+    
+    .search button{
+        width: 26%
     }
     
     
