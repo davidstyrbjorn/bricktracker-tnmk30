@@ -382,13 +382,13 @@ td {
 }
 .dark-tr {
 	background: LightSteelBlue;
-    -webkit-transition: background 1s;
+    -webkit-transition:left background 1s;
     transition: background 1s;
     
 }
 .light-tr {
 	background: #d9e6f2;
-    -webkit-transition: background 1s;
+    -webkit-transition: left background 1s;
     transition: background 1s;
 }
 .has{
@@ -397,6 +397,7 @@ td {
 .light-tr:hover,
 .dark-tr:hover {
 	background: whitesmoke;
+    left:-10px;
 }
 
 
