@@ -268,9 +268,12 @@ article h2{
 /*FOOTER*/
 
 footer{
-    position:absolute;
+    position: absolute;
+  margin-top: 100%;
+ 
+  width: 100%;
     background:#2a2a2a; 
-    width:100%;
+   
     bottom:0;
 }
 
