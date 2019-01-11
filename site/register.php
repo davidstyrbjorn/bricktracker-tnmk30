@@ -11,6 +11,10 @@
   		<script src=""></script>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <?php
+        include "../php/script.php";
+        ?>
+
     </head>
     
     <body>
@@ -106,33 +110,10 @@
             </div>
       </div>
         
-        <footer>
-            
-            <div class="wrapper">
-                <div class="footer-sections">
-                    <div class="footer-section">
-                        <ul>
-                            <li class="list-header">BrickTracker</li>
-                            <li><a>©2019 BrickTracker</a></li>
-                            <li><a>David Styrbjörn, Emil Bertholdsson, Linus Karlsson, Max Benecke</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <ul>
-                            <li class="list-header">Help</li>
-                            <li><a class="footer-link">Terms & Privacy</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <ul>
-                            <li class="list-header">Contact</li>
-                            <li><a>For any site or account related questions, please </a><a class="footer-link" href = "mailto: brick_tracker_team@gmail.com">contact us.</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-        </footer>
+        <!-- Echoes HTML code -->
+        <?php
+        displayFooter();
+        ?>
         
         
         
