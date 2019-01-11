@@ -387,11 +387,15 @@ td {
 	background: #d9e6f2;
 }
 .has {
-	background: #29A645;
+	border:solid 2px #29A645;
 }
 .light-tr:hover,
 .dark-tr:hover {
 	background: whitesmoke;
+}
+
+.has:hover {
+	background: #44ba5e;
 }
 .pagination {
 	margin: 20px auto 20px auto;
