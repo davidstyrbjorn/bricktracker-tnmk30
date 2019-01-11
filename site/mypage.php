@@ -54,7 +54,7 @@
         </nav>
         <header>
        
-            <div class="header-window-mypage">
+            <div class="header-window-mypage header-window">
                 <br>
                 <br>
 				<?php
