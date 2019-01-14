@@ -12,3 +12,6 @@ Saknar resposivitet
 - "Naven när man är inloggad"
 - Register
 - Login
+
+
+-userHasSet($set_id);

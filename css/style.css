@@ -392,8 +392,7 @@ td {
     transition: background 0.5s;
 }
 .has{
-	outline:solid 0 0 0 10px #29A645;
-    outline-offset: -10px;
+	border-left: 4px solid #29A645;
 }
 .light-tr:hover,
 .dark-tr:hover {
