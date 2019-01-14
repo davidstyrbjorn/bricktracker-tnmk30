@@ -227,8 +227,10 @@ function displaySetInfo($set_id)
     
     echo "<form action='../php/addset.php' method='post'>";
     echo "<input type='hidden' value='$set_id' name='SetID'>";
+    echo "<input type='hidden' name='SetPage' value='true'>";
     echo "<button type='submit' class='add-button'>+</button>";
     echo "</form>";
+    
     
 
 }
