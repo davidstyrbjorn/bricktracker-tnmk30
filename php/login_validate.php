@@ -22,8 +22,7 @@ $row = mysqli_fetch_array($result);
 // Check if we got anything back from the query
 $user_found = (mysqli_num_rows($result)) ? TRUE:FALSE;
 
-$fail_string = "fail_message=";
-
+// Is there a user with these credentials registered?
 if($user_found){
 	// User found check that password matches the users password!
 	$database_pword = $row["pword"];
@@ -32,27 +31,10 @@ if($user_found){
 		$_SESSION["logged_in"] = true;
 		$_SESSION["user_id"] = $row["user_id"];
 		header("location:../site/mypage.php");
-		exit();
-	}
-	else{
-		$fail_string .= "wrong_password";
+		exit(); // Stop executing php code from here
 	}
 } 
-else {
-	// User not found!
-	$fail_string .= "user_not_found";
-}
 
-// Redirect back with the fail string in the url
-header("location:../site/login.php?$fail_string");
-
-/*
-select id, name
-from subjects
-where name like concat('%', @search, '%')?>
-order by 
-	name like concat(@search, '%') desc,
-	ifnull(nullif(instr(name, concat(' ', @search)), 0), 99999),
-	ifnull(nullif(instr(name, @search), 0), 99999),
-	name;
-*/
+// Redirect back indicating we failed to login
+header("location:../site/login.php?fail=1");
+exit();

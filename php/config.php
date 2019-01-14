@@ -1,5 +1,6 @@
 <?php
 
+// Big array mainly for database login info
 $config = array(
     "db" => array(
         "big_lego_database" => array(
