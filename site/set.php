@@ -100,7 +100,7 @@
 		displayPagenationBricks($_GET["set_id"]);
         ?>
 		
-        <button classs="up-button" onclick="topFunction()">^</button>
+        <button class="up-button" onclick="topFunction()">Ta mig till toppen</button>
 
         <!-- Echoes HTML code -->
         <?php
