@@ -492,4 +492,19 @@ function displayFooter()
 	echo $footer;
 }
 
+function emptyMyPage()
+{
+	
+}
+
+function emptySearch()
+{
+	
+}
+
+function noSearch()
+{
+	
+}
+
 ?>

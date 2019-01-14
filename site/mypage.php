@@ -74,7 +74,12 @@
                   </tr>
 
 				  <?php
+				  if(getUserSetCount() > 0){
 						displayOwnedSets();
+				  }
+				  else{
+					  emptyMyPage();
+				  }
 				  ?>
 				  
                 </table>
