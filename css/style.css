@@ -382,14 +382,14 @@ td {
 }
 .dark-tr {
 	background: LightSteelBlue;
-    -webkit-transition: background 1s;
-    transition: background 1s;
+    -webkit-transition: background 0.5s;
+    transition: background 0.5s;
     
 }
 .light-tr {
 	background: #d9e6f2;
-    -webkit-transition: background 1s;
-    transition: background 1s;
+    -webkit-transition: background 0.5s;
+    transition: background 0.5s;
 }
 .has{
 	border-left:solid 10px #29A645;
@@ -397,6 +397,10 @@ td {
 .light-tr:hover,
 .dark-tr:hover {
 	background: whitesmoke;
+    -webkit-transform: scale(1.01);
+        -ms-transform: scale(1.01);
+        transform: scale(1.01);
+        transition:0.3s;
 
 }
 
