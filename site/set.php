@@ -69,7 +69,7 @@
                 <br>
                 <br>
                 <br>
-                <div class="h-window-flex">
+                <div class="h-window-flex set-window-text">
 				    <?php
 				    displaySetInfo($_GET["set_id"]);
 				    ?>

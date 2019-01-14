@@ -211,7 +211,7 @@ function displaySetInfo($set_id)
 	// Was there an image?
 	if($image_suffix != "none") {
 		$url = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . $row["ItemTypeID"] . "L/" . $row["ItemID"] . $image_suffix;
-		echo "<img class='set-img' src='$url'>";
+		echo "<div><img class='set-img' src='$url'></div>";
 	}
 	
 	echo "<div class='header-window-text'>";
