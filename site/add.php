@@ -77,17 +77,6 @@
 				  <?php				  
 				  // Display the search
 				  if(isset($_GET["search_string"])){
-
-
-						echo "<table class='lego-table'>";
-						echo "<tr>";
-						echo "<th>ID</th>";
-						echo "<th>NAME</th>";
-						echo "<th>YEAR</th>";
-						echo "<th>IMAGE</th>";
-						echo "<th>ADD</th>";
-						echo "</tr>";
-
 						$newSearch = true;
 						// New search? if so reset page number
 						if(isset($_SESSION["last_search"])){
@@ -116,7 +105,7 @@
                 </div>
 				
 				<?php
-				if(isset($_GET["search_string"])){
+				if(isset($_GET["search_string"]) && $_SESSION["search_count"] > 0){
 					displayPaginationAddSets();
 				}
 

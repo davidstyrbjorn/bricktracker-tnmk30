@@ -64,26 +64,30 @@
         </header>
         <div class="wrapper">
             <div class="lego-table-container">
-                <table class="lego-table">
-                  <tr>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>YEAR</th>
-                    <th>IMAGE</th>
-					<th>REMOVE</th>
-                  </tr>
+
 
 				  <?php
+		
 				  if(getUserSetCount() > 0){
+						echo "<table class='lego-table'>";
+						echo "<tr>";
+						
+						echo "<th>ID</th>";
+						echo "<th>NAME</th>";
+						echo "<th>YEAR</th>";
+						echo "<th>IMAGE</th>";
+						echo "<th>REMOVE</th>";
+						echo "</tr>";
+						
 						displayOwnedSets();
+						echo "</table>";
 				  }
 				  else{
 					  emptyMyPage();
 				  }
 				  ?>
 				  
-                </table>
-            </div>
+				  </div>
 
         <?php
 		if(getUserSetCount() > 0){

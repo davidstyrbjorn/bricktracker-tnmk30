@@ -149,40 +149,56 @@ function searchForSetAndDisplay($search_string, $newSearch){
 
 	$table_row_class = "dark-tr";	
 	
-	while($row = mysqli_fetch_array($result)) {
-		// Toggle row class!		
-		if($table_row_class == "dark-tr")
-			$table_row_class = "light-tr";
-		else
-			$table_row_class = "dark-tr";
-		
-			$SetID = $row["SetID"]; // We use this more than once
-		// Check if the user has set
-		$hasSet = userHasSet($SetID);
-		if($hasSet == true){
-			$table_row_class .= " has"; 
-		}
-			
-		// Display the row
-		echo "<tr class='$table_row_class'>";
-		echo "<td>" . $SetID . 	"</td>";
-		echo "<td><a href='../site/set.php?set_id=$SetID'>" . $row['Setname'] . "</a></td>";
-		echo "<td>" . $row['Year'] . 	"</td>";
-		$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
-		echo "<td class='set-image'>" . "<img src='$url' alt='".$row['Setname']."'>" . "</td>";
-		echo "<td>"; 
-		
-		echo "<form action='../php/addset.php' method='post'>";
-		echo "<input type='hidden' value='$SetID' name='SetID'>";
-		echo "<button type='submit' class='add-button'>+</button>";
-		echo "</form>";
-		echo "</td>";
-		
+	if($result->num_rows == 0){
+		emptySearch();
+	}
+	else{
+		echo "<table class='lego-table'>";
+		echo "<tr>";
+		echo "<th>ID</th>";
+		echo "<th>NAME</th>";
+		echo "<th>YEAR</th>";
+		echo "<th>IMAGE</th>";
+		echo "<th>ADD</th>";
 		echo "</tr>";
 		
-		if($hasSet)
-			$table_row_class = substr($table_row_class, 0, strlen($table_row_class)-4);
-	}	
+		while($row = mysqli_fetch_array($result)) {
+			// Toggle row class!		
+			if($table_row_class == "dark-tr")
+				$table_row_class = "light-tr";
+			else
+				$table_row_class = "dark-tr";
+			
+				$SetID = $row["SetID"]; // We use this more than once
+			// Check if the user has set
+			$hasSet = userHasSet($SetID);
+			if($hasSet == true){
+				$table_row_class .= " has"; 
+			}
+				
+			// Display the row
+			echo "<tr class='$table_row_class'>";
+			echo "<td>" . $SetID . 	"</td>";
+			echo "<td><a href='../site/set.php?set_id=$SetID'>" . $row['Setname'] . "</a></td>";
+			echo "<td>" . $row['Year'] . 	"</td>";
+			$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
+			echo "<td class='set-image'>" . "<img src='$url' alt='".$row['Setname']."'>" . "</td>";
+			echo "<td>"; 
+			
+			echo "<form action='../php/addset.php' method='post'>";
+			echo "<input type='hidden' value='$SetID' name='SetID'>";
+			echo "<button type='submit' class='add-button'>+</button>";
+			echo "</form>";
+			echo "</td>";
+			
+			echo "</tr>";
+			
+			if($hasSet)
+				$table_row_class = substr($table_row_class, 0, strlen($table_row_class)-4);
+		}	
+		
+		echo "</table>";
+	}
 }
 
 // Used at set.php
@@ -502,17 +518,17 @@ function displayFooter()
 
 function emptyMyPage()
 {
-	
+	echo "No sets added";
 }
 
 function emptySearch()
 {
-	
+	echo "No sets found!";
 }
 
 function noSearch()
 {
-	
+	echo "No search made!";
 }
 
 ?>

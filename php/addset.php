@@ -30,6 +30,11 @@ mysqli_query($db, $query);
 // Update how many sets the user has
 $_SESSION["user_set_count"] = getUserSetCount();
 
+if(isset($_POST["SetPage"])){
+	header("location:../site/set.php? set_id=$SetID");
+	exit();
+}
+
 // Redirect back to add page + the last search 
 $last_search = $_SESSION["last_search"];
 header("location:../site/add.php? search_string=$last_search");
