@@ -69,18 +69,24 @@
             </form>
             
             <div class="lego-table-container">
-                <table class="lego-table">
-                  <tr>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>YEAR</th>
-                    <th>IMAGE</th>
-                    <th>ADD</th>
-                  </tr>
+  
 				  
-				  <?php
+				  
+				  
+				  
+				  <?php				  
 				  // Display the search
 				  if(isset($_GET["search_string"])){
+
+
+						echo "<table class='lego-table'>";
+						echo "<tr>";
+						echo "<th>ID</th>";
+						echo "<th>NAME</th>";
+						echo "<th>YEAR</th>";
+						echo "<th>IMAGE</th>";
+						echo "<th>ADD</th>";
+						echo "</tr>";
 
 						$newSearch = true;
 						// New search? if so reset page number
@@ -99,10 +105,13 @@
 						
 						// Do some actual displaying
 						searchForSetAndDisplay(filter_input(INPUT_GET, "search_string", FILTER_SANITIZE_SPECIAL_CHARS), $newSearch);
+						
+						echo "</table>";
+				  }else{
+					  noSearch();
 				  }
+				  
 				  ?>
-				 
-                </table>
 
                 </div>
 				
@@ -110,6 +119,7 @@
 				if(isset($_GET["search_string"])){
 					displayPaginationAddSets();
 				}
+
 				?>
 			
         </div>
