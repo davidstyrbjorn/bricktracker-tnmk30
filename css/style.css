@@ -312,7 +312,7 @@ footer {
 }
 
 /*FORM-Register*/
-.form-column input {
+input {
 	margin: 3px 0;
 	padding: 10px;
 	width: 250px;
