@@ -312,7 +312,7 @@ footer {
 }
 
 /*FORM-Register*/
-input {
+.form-column input {
 	margin: 3px 0;
 	padding: 10px;
 	width: 250px;
@@ -382,14 +382,14 @@ td {
 }
 .dark-tr {
 	background: LightSteelBlue;
-    -webkit-transition:right 1s, background 1s;
-    transition: right 1s, background 1s;
+    -webkit-transition: background 1s;
+    transition: background 1s;
     
 }
 .light-tr {
 	background: #d9e6f2;
-    -webkit-transition: left 1s, background 1s;
-    transition: right 1s, background 1s;
+    -webkit-transition: background 1s;
+    transition: background 1s;
 }
 .has{
 	border-left:solid 10px #29A645;
@@ -397,7 +397,7 @@ td {
 .light-tr:hover,
 .dark-tr:hover {
 	background: whitesmoke;
-    right:10px;
+
 }
 
 
@@ -434,6 +434,7 @@ td {
 .pagination-button {
 	border: 0;
 	background: 0;
+    width:100px;
 }
 .add-button {
 	font-size: 20px;
