@@ -224,6 +224,12 @@ function displaySetInfo($set_id)
 	echo "<li>Category: " . $row["Categoryname"] . "</li>";
 	
 	echo "</ul>";
+    
+    echo "<form action='../php/addset.php' method='post'>";
+    echo "<input type='hidden' value='$set_id' name='SetID'>";
+    echo "<button type='submit' class='add-button'>+</button>";
+    echo "</form>";
+    
 
 }
 

@@ -566,13 +566,7 @@ td {
 		padding: 0;
 	}
 	
-	.lego-table-container {
-		overflow-x: scroll;
-	}
 	
-	.lego-table {
-		width: 900px;
-	}
 	
 	.search input {
 		width: 88%
@@ -603,6 +597,14 @@ td {
 	
 	.section {
 		flex-wrap: wrap;
+	}
+    
+    .lego-table-container {
+		overflow-x: scroll;
+	}
+	
+	.lego-table {
+		width: 600px;
 	}
 	
 	.section img {
