@@ -93,7 +93,7 @@
         
         </div>
         
-        <button class="up-button" onclick="topFunction()">Ta mig till toppen</button>
+        <button class="up-button" onclick="topFunction()">Take me to the top</button>
         <!-- Echoes HTML code -->
         <?php
         displayFooter();
