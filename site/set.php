@@ -50,7 +50,7 @@
             <div class="wrapper">
                 <div class="nav-items">
                     <div class="nav-items-left">
-                        <a class="nav-item" href="home.php">BRICK_TRACKER</a>
+                        <a class="nav-item logo" href="home.php">BRICK<span>TRACKER</span></a>
                         <a class="nav-item" href="mypage.php">MY PAGE</a>
                         <a class="nav-item" href="add.php">ADD</a>
                     </div>

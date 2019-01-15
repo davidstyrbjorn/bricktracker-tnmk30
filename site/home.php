@@ -50,13 +50,13 @@
 						}
 																		
 						if($logged_in){
-							echo "<a class='nav-item' href='home.php'>BRICK_TRACKER</a>";
+							echo "<a class='nav-item logo' href='home.php'>BRICK<span>TRACKER</span></a>";
 							echo "<a class='nav-item' href='mypage.php'>MY PAGE</a>";
 							echo "<a class='nav-item' href='add.php'>ADD</a>";
 						}
 						else{
                             
-							echo "<a class='nav-item' href='home.php'>BRICK_TRACKER</a>";
+							echo "<a class='nav-item logo' href='home.php'>BRICK<span>TRACKER</span></a>";
 							echo "<a class='nav-item-grayed' href='login.php'>MY PAGE</a>";
 							echo "<a class='nav-item-grayed' href='login.php'>ADD</a>";
 						}
