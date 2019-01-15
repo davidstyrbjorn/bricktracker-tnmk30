@@ -93,9 +93,7 @@
 						$_SESSION["last_search"] = $_GET["search_string"];
 						
 						// Do some actual displaying
-						searchForSetAndDisplay(filter_input(INPUT_GET, "search_string", FILTER_SANITIZE_SPECIAL_CHARS), $newSearch);
-						
-						echo "</table>";
+						searchForSetAndDisplay(filter_input(INPUT_GET, "search_string", FILTER_SANITIZE_SPECIAL_CHARS), $newSearch);						
 				  }else{
 					  noSearch();
 				  }

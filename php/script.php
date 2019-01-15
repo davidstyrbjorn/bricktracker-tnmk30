@@ -28,8 +28,8 @@ function displayUserInfo()
 	
 	$set_count = getUserSetCount();
 	echo "<h1>" . $username . "</h1>";
-	echo "<h3>" . "You own " . $set_count . " sets!" . "<h3>";
-	echo "<h5>" . $description . "</h3>";
+	echo "<h3>" . "You own " . $set_count . " sets!" . "</h3>";
+	echo "<h5>" . $description . "</h5>";
 }
 
 // Echo html tables of the current users owned sets
@@ -176,13 +176,16 @@ function searchForSetAndDisplay($search_string, $newSearch){
 				$table_row_class .= " has"; 
 			}
 				
+			$set_name = $row["Setname"];
+			$set_id = $row["SetID"];
+				
 			// Display the row
 			echo "<tr class='$table_row_class'>";
 			echo "<td>" . $SetID . 	"</td>";
 			echo "<td><a href='../site/set.php?set_id=$SetID'>" . $row['Setname'] . "</a></td>";
 			echo "<td>" . $row['Year'] . 	"</td>";
 			$url  = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . getSetImageURL($row['has_gif'], $row['has_jpg'], $row['ItemTypeID'], $row['SetID']);
-			echo "<td class='set-image'>" . "<img src='$url' alt='".$row['Setname']."'>" . "</td>";
+			echo "<td class='set-image'>" . "<img src='$url' alt='$set_id'>" . "</td>";
 			echo "<td>"; 
 			
 			echo "<form action='../php/addset.php' method='post'>";
@@ -246,9 +249,6 @@ function displaySetInfo($set_id)
     echo "<input type='hidden' name='SetPage' value='true'>";
     echo "<button type='submit' class='add-button'>+</button>";
     echo "</form>";
-    
-    
-
 }
 
 // Used at set.php
@@ -339,7 +339,7 @@ function displayPaginationAddSets()
 	echo "<form action='../php/pagination_page_switch.php' method='POST'>";
 	echo "<table class='pagination'>";
 	echo "<tr>";
-	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_sets' value='<' </td>";
+	echo "<td> <input type='submit' class='pagination-button' name='pagination_left_sets' value='<' /> </td>";
 	echo "<td>$page_number / " . $max_page_number . "</td>";
 	echo "<td> <input type='submit' class='pagination-button' name='pagination_right_sets' value='>'/> </td> ";
 	echo "</tr> ";
@@ -508,7 +508,7 @@ function displayFooter()
 			<div class='footer-section'>
 				<ul>
 					<li class='list-header'>Contact</li>
-					<li><a>For any site or account related questions, please </a><a class='footer-link' href = 'mailto: brick_tracker_team@gmail.com'>contact us.</a></li>
+					<li><a>For any site or account related questions, please </a><a class='footer-link' href = 'mailto:brick_tracker_team@gmail.com'>contact us.</a></li>
 				</ul>
 			</div>
 		</div>
