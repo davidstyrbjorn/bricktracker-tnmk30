@@ -319,7 +319,9 @@ function displaySetPieces($set_id)
 		elseif($row["has_jpg"]) {
 			$image_suffix = ".jpg";
 		}
-		$url = "http://www.itn.liu.se/~stegu76/img.bricklink.com/P/" . $row["ColorID"] . "/" . $row["ItemID"];
+		if($row["ItemTypeID"] == 'P'){
+			$url = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . $row["ItemTypeID"] . "/" . $row["ColorID"] . "/" . $row["ItemID"];
+		}		
 		echo "<td>" . "<img src='$url'>" . "</td>";
 		
 		echo "</tr>";
