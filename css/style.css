@@ -58,6 +58,11 @@ a {
 	text-decoration: none;
 }
 
+.feedback-text{
+    color:white;
+    text-align: center;
+    padding: 20px 0;
+}
 
 /*NAVIGATION CSS*/
 
@@ -440,10 +445,20 @@ td {
 	background: 0;
     width:100px;
 }
-.add-button {
+.add-button, .remove-button{
 	font-size: 20px;
 	padding: 0 6px 3px 6px;
+    color:white;
 }
+
+.add-button{
+    background:#245C92;
+}
+
+.remove-button{
+    background:#BB261A;
+}
+
 .search {
 	display: flex;
 	justify-content: space-between;
