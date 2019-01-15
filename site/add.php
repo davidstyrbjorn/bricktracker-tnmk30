@@ -67,7 +67,7 @@
         <div class="wrapper">
             
             <form class="search" action="add.php" method="get">
-                <input type="text" placeholder="Search for SetID, SetName, SetYear..." value="" name="search_string">
+                <input type="text" placeholder="Search for SetID, SetName or SetYear" value="" name="search_string">
                 <button type="submit">Search</button>
             </form>
             
