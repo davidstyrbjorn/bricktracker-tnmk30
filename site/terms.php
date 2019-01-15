@@ -6,7 +6,10 @@
 		<meta name="description" content="Keep track of your collection online!">
   		<meta name="keywords" content="Bricks Lego collection track tracking ">
   		<meta name="author" content="Emil Bertholdsson, David Styrbjörn, Linus Karlsson, Max Benecke">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand|Varela+Round|Roboto|Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   		<link  href="../css/style.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
           
