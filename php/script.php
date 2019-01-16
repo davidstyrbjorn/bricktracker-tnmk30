@@ -101,7 +101,7 @@ function displayOwnedSets()
 			echo "<td>"; 
 			echo "<form action='../php/removeset.php' method='post'>";
 			echo "<input type='hidden' value='$SetID' name='SetID'>";
-			echo "<button type='submit' class='add-button'>-</button>";
+			echo "<button type='submit' class='remove-button'>-</button>";
 			echo "</form>";
 			echo "</td>";
 			
@@ -522,17 +522,17 @@ function displayFooter()
 
 function emptyMyPage()
 {
-	echo "No sets added";
+	echo '<h3 class="feedback-text">Go to the "Add" page via the navbar to add sets to your collection!</h3>';
 }
 
 function emptySearch()
 {
-	echo "No sets found!";
+	echo "<h3 class='feedback-text'>Sorry we couldn't find anything with that searchword.</h3>";
 }
 
 function noSearch()
 {
-	echo "No search made!";
+	echo "<h3 class='feedback-text'>Go ahead, type a searchword</h3>";
 }
 
 ?>
