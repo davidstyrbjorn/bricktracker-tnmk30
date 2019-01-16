@@ -230,7 +230,7 @@ function displaySetInfo($set_id)
 	// Was there an image?
 	if($image_suffix != "none") {
 		$url = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . $row["ItemTypeID"] . "L/" . $row["ItemID"] . $image_suffix;
-		echo "<div><img class='set-img' src='$url'></div>";
+		echo "<div><img class='set-img' src='$url' alt='$set_id'></div>";
 	}
 	
 	echo "<div class='header-window-text'>";
@@ -249,6 +249,8 @@ function displaySetInfo($set_id)
     echo "<input type='hidden' name='SetPage' value='true'>";
     echo "<button type='submit' class='add-button'>+</button>";
     echo "</form>";
+	
+	echo "</div>";
 }
 
 // Used at set.php
@@ -313,7 +315,7 @@ function displaySetPieces($set_id)
 		echo "<td>" . $row["Quantity"] . "</td>";
 		// Image
 		$image_suffix = "none";
-		if($row["has_gif"]) {
+		if($row["has_gif"]) { 
 			$image_suffix = ".gif";
 		}
 		elseif($row["has_jpg"]) {
@@ -322,7 +324,7 @@ function displaySetPieces($set_id)
 		if($row["ItemTypeID"] == 'P'){
 			$url = "http://www.itn.liu.se/~stegu76/img.bricklink.com/" . $row["ItemTypeID"] . "/" . $row["ColorID"] . "/" . $row["ItemID"];
 		}		
-		echo "<td>" . "<img src='$url'>" . "</td>";
+		echo "<td>" . "<img src='$url' alt='$set_id'>" . "</td>";
 		
 		echo "</tr>";
 	}
