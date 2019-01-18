@@ -553,12 +553,13 @@ td {
 }
 
 #modal div {
-    margin-top:20px;
+    
     width:600px;
     top:20px;
     border-left: solid 6px #245C92;
     border-radius:3px;
     margin:auto;
+    margin-top:20px;
     background:whitesmoke;
     padding:25px;
     
