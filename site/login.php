@@ -11,7 +11,6 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   		<link  href="../css/style.css" rel="stylesheet"/>
-  		<script src=""></script>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <?php      

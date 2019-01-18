@@ -455,6 +455,11 @@ td {
     background:#BB261A;
 }
 
+.remove-button, .add-button{
+    border:0;
+    border-radius:3px;
+}
+
 .search {
 	display: flex;
 	justify-content: space-between;
