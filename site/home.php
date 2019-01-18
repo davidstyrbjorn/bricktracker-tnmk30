@@ -141,7 +141,7 @@
 		<script src="../Js/AutoLoggOut.js"></script>
 		
 		<script>
-		//StartTimer();
+		StartTimer();
 		</script>
 
     </body>
