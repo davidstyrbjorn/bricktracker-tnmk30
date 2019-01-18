@@ -61,7 +61,7 @@
                 </div>
             </div>
         </nav>
-        <header>
+        <header id="header-add">
             <div class="header-window">
                 <h1 id="header-window-text">ADD</h1>
                 <h5>Add sets to your Lego collection!</h5>
