@@ -553,6 +553,7 @@ td {
 }
 
 #modal div {
+    margin-top:20px;
     width:600px;
     top:20px;
     border-left: solid 6px #245C92;
@@ -560,7 +561,7 @@ td {
     margin:auto;
     background:whitesmoke;
     padding:25px;
-    margin: 20px 0;
+    
     
 }
 
