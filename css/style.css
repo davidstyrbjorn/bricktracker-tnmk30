@@ -523,6 +523,20 @@ td {
 	margin-top: 10px;
 }
 
+.up-button {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)) ;
+    border:0;
+    color:#E8E8E8;
+    font-size:20px;
+    padding:10px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.up-button:hover {
+    background:rgba(0,0,0,0.2);
+    color:white;
+}
+
 /*SET-Header*/
 .set-window-text h2{
     color: yellowgreen;
