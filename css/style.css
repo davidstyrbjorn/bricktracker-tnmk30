@@ -132,7 +132,7 @@ nav .nav-items {
 
 #hover-header:hover {
 	transition: 0.2s;
-	background: url("https://i.imgur.com/ZcPnllj.jpg");
+	background: url("https://i.imgur.com/66F1GJl.jpg");
 	background-position: center;
 	background-size: cover;
 }
@@ -151,7 +151,7 @@ header {
 
 #hover-header {
 	height: 450px;
-	background: url("https://i.imgur.com/HEaQQEM.jpg");
+	background: url("https://i.imgur.com/evZxlEj.jpg");
 	display: table;
 	width: 100%;
 	transition: 0.2s;
@@ -458,6 +458,14 @@ td {
 .remove-button, .add-button{
     border:0;
     border-radius:3px;
+}
+
+.add-button:hover{
+    background:#173e63;
+}
+
+.remove-button:hover{
+    background:#7c1911;
 }
 
 .search {
