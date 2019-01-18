@@ -1,8 +1,8 @@
 var firstTimer = 10000;
 var secondTimer = 60000;
-var loggOut /*url av utloggningsida*/;
+var loggOut; /*url av utloggningsida*/
 var myTimer;
-var modal = document.getElementByID("modal");
+var modal = document.getElementById("modal");
 
 
 function IdleTimer() {

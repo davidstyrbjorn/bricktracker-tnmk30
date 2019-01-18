@@ -538,7 +538,7 @@ function noSearch()
 function echoModal()
 {
 	$modal_html = "
-	<div class='modal'>
+	<div id='modal'>
 	<p>You're gonna be logged out in a minute, cause: IDLE</p>
 	</div>
 	";
