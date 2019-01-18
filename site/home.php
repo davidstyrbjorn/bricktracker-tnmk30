@@ -134,8 +134,10 @@
         displayFooter();
         ?>
 		<div id="modal">
-		<p>You're gonna be logged out in a minute, cause: IDLE</p>
-		</div>
+            <div>
+		       <p>You're gonna be logged out in a minute, cause: IDLE</p>
+		    </div>
+        </div>
 		<script src="../Js/AutoLoggOut.js"></script>
 		
 		<script>
