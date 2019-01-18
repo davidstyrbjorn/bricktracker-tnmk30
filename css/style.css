@@ -211,7 +211,7 @@ header {
 .header-window-text ul {
 	font-family: 'Montserrat', sans-serif;
 	list-style-type: none;
-	text-align: middle;
+	text-align: center;
 	padding: 0;
 }
 
@@ -282,8 +282,6 @@ article h2 {
 	border-bottom: solid 1px #015B95;
 }
 
-
-}
 .section-2 {
 	justify-content: space-between;
 }
@@ -596,7 +594,7 @@ td {
 		font-weight: 100;
 	}
 	
-	.header-window #header-window-text,
+	.header-window #header-window-text
 	{
 		font-size: 30px;
 	}
@@ -643,7 +641,7 @@ td {
 	}
 	
 	.nav-p {
-		display: hidden;
+		display:none;
 	}
 	
 	.section {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="en">
         <meta charset="utf-8"/>
 		<title>BrickTracker - Add</title>
 		<meta name="description" content="Keep track of your collection online!">
