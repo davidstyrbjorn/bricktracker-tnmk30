@@ -545,7 +545,6 @@ td {
 #modal {
 	display: block; 
  	position: fixed;
-    top:20px;
 	z-index: 3;
     width:100vw;
     height:100vh;
@@ -554,6 +553,7 @@ td {
 }
 
 #modal div {
+    top:20px;
     margin:auto;
     background:whitesmoke;
     
