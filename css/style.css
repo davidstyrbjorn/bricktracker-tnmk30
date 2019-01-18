@@ -460,6 +460,14 @@ td {
     border-radius:3px;
 }
 
+.add-button:hover{
+    background:#173e63;
+}
+
+.remove-button:hover{
+    background:#7c1911;
+}
+
 .search {
 	display: flex;
 	justify-content: space-between;
