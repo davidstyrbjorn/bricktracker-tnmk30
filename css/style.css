@@ -21,11 +21,7 @@ body {
 	flex: 1;
 }
 
-.wrapper-terms {
-	padding-top: 50px;
-	width: 1200px;
-	margin: auto;
-}
+
 
 
 /*TEXT & FONTS*/
@@ -457,6 +453,11 @@ td {
 
 .remove-button{
     background:#BB261A;
+}
+
+.remove-button, .add-button{
+    border:0;
+    border-radius:3px;
 }
 
 .search {

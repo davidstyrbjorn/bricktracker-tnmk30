@@ -92,8 +92,10 @@
                 </div>
             </div>
         </nav>
-                
-        <div class="wrapper-terms">
+        <br>
+        <br>
+        <br>
+        <div class="wrapper">
             <div class="main">
                 <div class="section section-1">
                     <article>
