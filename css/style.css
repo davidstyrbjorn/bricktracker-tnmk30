@@ -132,7 +132,7 @@ nav .nav-items {
 
 #hover-header:hover {
 	transition: 0.2s;
-	background: url("https://i.imgur.com/66F1GJl.jpg");
+	background: url("https://i.imgur.com/LFEU5Dr.jpg");
 	background-position: center;
 	background-size: cover;
 }
@@ -151,10 +151,19 @@ header {
 
 #hover-header {
 	height: 450px;
-	background: url("https://i.imgur.com/evZxlEj.jpg");
+	background: url("https://i.imgur.com/VvpkFW9.jpg");
 	display: table;
 	width: 100%;
 	transition: 0.2s;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-add {
+	height: 450px;
+	background: url("https://i.imgur.com/tHWGJqO.jpg");
+	display: table;
+	width: 100%;
 	background-position: center;
 	background-size: cover;
 }
@@ -175,11 +184,12 @@ header {
 }
 
 .header-window-mypage {
+	background: url("https://i.imgur.com/ak7USQW.jpg");
+	background-size: cover;
 	display: table-cell;
 	vertical-align: middle;
 	color: aliceblue;
 	text-align: center;
-	background: #47556f;
 }
 
 .header-window-mypage h5,
@@ -351,10 +361,6 @@ input {
 	text-align: center;
 	background: #F5F5F5;
 	border-radius: 0 0 2px 2px;
-}
-.header-window-mypage {
-	background: url("https://i.imgur.com/nsACEkX.jpg");
-	background-size: cover;
 }
 
 /*MY PAGE/ADD TABLE*/
