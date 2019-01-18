@@ -535,4 +535,14 @@ function noSearch()
 	echo "<h3 class='feedback-text'>Go ahead, type a searchword</h3>";
 }
 
+function echoModal()
+{
+	$modal_html = "
+	<div class='modal'>
+	<p>You're gonna be logged out in a minute, cause: IDLE</p>
+	</div>
+	";
+	echo "";
+}
+
 ?>

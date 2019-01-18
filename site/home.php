@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +25,7 @@
     </head>
     
     <body>
-    
+		
         <nav>
             <div class="wrapper">
                 <div class="nav-items">
@@ -133,8 +130,14 @@
     
         <!-- Echoes HTML code -->
         <?php
+		echoModal();
         displayFooter();
         ?>
+		
+		<script src="../Js/AutoLoggOut.js">
+		var idleTimer = IdleTimer();
+		idleTimer.StartTimer();
+		</script>
 
     </body>
 </html>
