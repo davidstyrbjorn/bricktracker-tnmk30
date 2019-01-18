@@ -548,12 +548,15 @@ td {
 	z-index: 3;
     width:100vw;
     height:100vh;
-    background:black;
+    
     background-color:rgba(0, 0, 0, 0.4);
 }
 
 #modal div {
+    width:600px;
     top:20px;
+    border-left: solid 6px #245C92;
+    border-radius:3px;
     margin:auto;
     background:whitesmoke;
     
