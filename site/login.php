@@ -41,13 +41,8 @@
             <div class="login-window">
 			
 				<?php
-				if(isset($_GET["fail_message"])){
-					if($_GET["fail_message"] == "user_not_found"){
-						echo "<p class='fail_message'>Wrong username or password!</p>";
-					}
-					else{
-						echo "<p class='fail_message'>Wrong username or password!</p>";
-					}
+				if(isset($_GET["fail"])){
+					echo "<p class='fail_message'>Wrong username or password!</p>";
 				}
 				?>
 				

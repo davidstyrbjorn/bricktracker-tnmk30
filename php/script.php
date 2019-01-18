@@ -308,7 +308,7 @@ function displaySetPieces($set_id)
 		echo "<tr class = '$table_row_class'>";
 		
 		// SetID
-		echo "<td>" . $set_id . "</td>";
+		echo "<td>" . $row["PartID"] . "</td>";
 		// Name
 		echo "<td>" . $row["Partname"] . "</td>";
 		// Quantity
