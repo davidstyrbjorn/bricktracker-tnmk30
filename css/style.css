@@ -536,9 +536,9 @@ td {
 	color: #FE1F02;
 }
 
-#modal
-	display: none;
-	position: fixed;
+#modal {
+	display: block; 
+ 	/*position: fixed; */
 	z-index: 1;
 }
 

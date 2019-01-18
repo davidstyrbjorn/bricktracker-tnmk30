@@ -1,34 +1,38 @@
 var firstTimer = 10000;
-var secondTimer = 60000;
-var loggOut; /*url av utloggningsida*/
+var secondTimer = 10000;
+var loggOut = "../php/logout.php"; 
 var myTimer;
-var modal = document.getElementById("modal");
+var modal = document.getElementById('modal');
 
 
-function IdleTimer() {
-    window.onmousemove = ResetTimer(); 
-    window.onmousedown = ResetTimer(); 
-    window.onclick = ResetTimer();     
-    window.onscroll = ResetTimer();    
-    window.onkeypress = ResetTimer();
-    
-    function StartTimer() {
-        myTimer = window.setTimeout(WarningTimer(), firstTimer);
-    }
-    
-    function WarningTimer() {
-        modal.style.display = "block";
-        clearTimeout(myTimer);
-        myTimer = window.setTimeout(LoggOut(), secondTimer);
-    }
-    
-    function ResetTimer() {
-        modal.style.display = "none";
-        clearTimeout(myTimer);
-        StartTimer();
-    }
-    
-    function LoggOut() {
-        window.location = loggOut;
-    }
+
+//Actions that make the site know that you are active
+/*window.onkeypress = ResetTimer;
+window.onmousedown = ResetTimer;
+window.onmousemove = ResetTimer;
+window.onclick = ResetTimer;
+window.onscroll = ResetTimer;
+*/
+//first timer
+function StartTimer() {
+	myTimer = window.setTimeout(WarningTimer, firstTimer);
 }
+//when a set time has passed you get a warrning message before you get logged out
+function WarningTimer() {
+	modal.style.display = "block";
+	clearTimeout(myTimer);
+	myTimer = window.setTimeout(LoggOut, secondTimer);
+
+}
+
+function ResetTimer() {
+	modal.style.display = "none";
+	clearTimeout(myTimer);
+	StartTimer();
+}
+
+function LoggOut() {
+	window.location = loggOut;
+}
+
+//}

@@ -13,6 +13,7 @@
   		<link  href="../css/style.css" rel="stylesheet"/>
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
+		
 		<?php
         session_start();
         include '../php/config.php';
@@ -130,13 +131,15 @@
     
         <!-- Echoes HTML code -->
         <?php
-		echoModal();
         displayFooter();
         ?>
+		<div id="modal">
+		<p>You're gonna be logged out in a minute, cause: IDLE</p>
+		</div>
+		<script src="../Js/AutoLoggOut.js"></script>
 		
-		<script src="../Js/AutoLoggOut.js">
-		var idleTimer = IdleTimer();
-		idleTimer.StartTimer();
+		<script>
+		//StartTimer();
 		</script>
 
     </body>

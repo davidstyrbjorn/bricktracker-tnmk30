@@ -542,7 +542,7 @@ function echoModal()
 	<p>You're gonna be logged out in a minute, cause: IDLE</p>
 	</div>
 	";
-	echo "";
+	echo $modal_html;
 }
 
 ?>
