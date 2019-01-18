@@ -1,10 +1,8 @@
-var firstTimer = 10000;
+var firstTimer = 600000;
 var secondTimer = 60000;
 var loggOut = "../php/logout.php"; 
 var myTimer;
 var modal = document.getElementById('modal');
-
-
 
 //Actions that make the site know that you are active
 window.onkeypress = ResetTimer;
@@ -34,5 +32,3 @@ function ResetTimer() {
 function LoggOut() {
 	window.location = loggOut;
 }
-
-//}

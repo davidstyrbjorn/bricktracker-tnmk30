@@ -133,16 +133,7 @@
         <?php
         displayFooter();
         ?>
-		<div id="modal">
-            <div>
-		       <p>You're gonna be logged out in a minute, cause: IDLE</p>
-		    </div>
-        </div>
-		<script src="../Js/AutoLoggOut.js"></script>
-		
-		<script>
-		StartTimer();
-		</script>
+
 
     </body>
 </html>
