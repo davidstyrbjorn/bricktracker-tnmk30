@@ -14,19 +14,7 @@ $config = array(
             "username" => "emibe986",
             "password" => "",
             "host" => "mysql.itn.liu.se"
-        ),
-		"special_edit" => array(
-			"dbname" => "emibe986",
-			"username" => "emibe986_edit",
-			"password" => "Goobergeeber",
-			"host" => "mysql.itn.liu.se"
-		),
-		"special_admin" => array(
-			"dbname" => "emibe986",
-			"username" => "emibe986_admin",
-			"password" => "Wooberweever",
-			"host" => "mysql.itn.liu.se"
-		)
+        )
     )
 );
 
