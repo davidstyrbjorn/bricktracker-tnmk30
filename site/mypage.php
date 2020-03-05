@@ -33,7 +33,6 @@
     </head>
     
     <body>
-    
         <nav>
             <div class="wrapper">
                 <div class="nav-items">
